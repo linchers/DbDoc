@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="database-doc-ui.main">
+    <output-path>$PROJECT_DIR$/out/artifacts/database_doc_ui_main</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.database.doc.ui.DocFXApplication" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="DatabaseDoc" />
+        <option name="vendor" value="" />
+        <option name="version" value="1.0.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="database_doc_ui_main.jar">
+        <element id="module-output" name="code-generator.database-doc-ui.main" />
+        <element id="module-output" name="code-generator.database-doc.main" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/database-doc-ui/src/main/resources" />
+      <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:8.0.25" />
+    </root>
+  </artifact>
+</component>

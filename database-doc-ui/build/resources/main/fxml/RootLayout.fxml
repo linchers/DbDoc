@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane prefHeight="650.0" prefWidth="1200.0" stylesheets="@../css/WhiteTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.database.doc.ui.view.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="打开">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="导出">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                   <MenuItem mnemonicParsing="false" onAction="#handleSetting" text="设置">
+                       <accelerator>
+                           <KeyCodeCombination alt="DOWN" code="S" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                       </accelerator>
+                   </MenuItem>
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="保存为" />-->
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="退出" />
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleDocumentLabel" text="Label文档">
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </MenuItem>
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Session">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleNew" text="数据库连接">
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </MenuItem>
+                </items>
+            </Menu>
+<!--          <Menu mnemonicParsing="false" text="Statistics">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />
+            </items>
+          </Menu>-->
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="关于" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

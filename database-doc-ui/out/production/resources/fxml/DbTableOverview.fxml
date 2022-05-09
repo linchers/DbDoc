@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="363.0" prefWidth="693.0" stylesheets="@../css/WhiteTheme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.database.doc.ui.view.DbTableOverviewController">
+   <children>
+      <SplitPane dividerPositions="0.4126984126984127" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: white">
+               <children>
+                  <AnchorPane layoutX="15.0" layoutY="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                         <ButtonBar prefHeight="34.0" prefWidth="267.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0">
+                             <buttons>
+                                 <CheckBox fx:id="checkAllBox" mnemonicParsing="false" text="全选" onAction="#handleCheckAll" ButtonBar.buttonData="LEFT" />
+                                 <Button mnemonicParsing="false" prefHeight="20.0" text="导出" ButtonBar.buttonData="RIGHT" />
+                             </buttons>
+                         </ButtonBar>
+                     </children>
+                  </AnchorPane>
+                  <TableView fx:id="itemTable" layoutY="42.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+                    <columns>
+                        <TableColumn fx:id="checkBox" maxWidth="1800.0F" prefWidth="75.0" text="选择"/>
+                        <TableColumn fx:id="tableNameColumn" prefWidth="75.0" text="表名" />
+                        <TableColumn fx:id="tableCommentColumn" prefWidth="75.0" text="注释" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
+               <children>
+                  <Label layoutX="104.0" layoutY="51.0" prefHeight="24.0" prefWidth="353.0" styleClass="label-header" text="表详情信息" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <GridPane layoutX="5.0" layoutY="67.0" prefHeight="80.0" prefWidth="393.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="67.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Table Name" />
+                        <Label text="Table Comment" GridPane.rowIndex="1" />
+                        <Label fx:id="tableNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="tableCommentLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                   <AnchorPane layoutX="5.0" layoutY="130.0" prefHeight="380.0" prefWidth="402.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="130.0">
+                       <children>
+                           <TableView fx:id="columnTable" layoutX="0.0" prefHeight="380.0" prefWidth="402.0" style="-fx-border-color: #d7d0d0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                               <columns>
+                                   <TableColumn fx:id="columnNameColumn" prefWidth="75.0" text="名称" />
+                                   <TableColumn fx:id="columnTypeColumn" prefWidth="175.0" text="数据类型" />
+                                   <TableColumn fx:id="columnSizeColumn" prefWidth="75.0" text="长度" />
+                                   <TableColumn fx:id="columnNullAbleColumn" prefWidth="175.0" text="允许NULL" />
+                                   <TableColumn fx:id="columnCommentColumn" prefWidth="75.0" text="注释" />
+                               </columns>
+                               <columnResizePolicy>
+                                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                               </columnResizePolicy>
+                           </TableView>
+                       </children>
+                   </AnchorPane>
+                  <ButtonBar layoutX="54.0" layoutY="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
+                    <buttons>
+                        <Button mnemonicParsing="false" onAction="#handleNewPerson" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#handleEditPerson" text="Edit..." />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

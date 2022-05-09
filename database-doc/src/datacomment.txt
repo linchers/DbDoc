@@ -1,0 +1,2785 @@
+备注：用户角色关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+erl_ent_id   INT(10)   NO   P      用户id   
+erl_rol_id   INT(10)   NO   P      角色id   
+erl_creation_timestamp   DATETIME(19)   NO         创建时间   
+erl_syn_timestamp   DATETIME(19)   YES         同步时间（接口同步）   
+erl_eff_start_datetime   DATE(10)   NO   P      �?始有效时�?   
+erl_eff_end_datetime   DATETIME(19)   NO   P      有效日期结束时间   
+序号�?2   表名：acfunction                  
+备注：菜单功能表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ftn_id   INT(10)   NO   P      ID   
+ftn_ext_id   VARCHAR(255)   NO         唯一编号   
+ftn_level   VARCHAR(50)   YES         菜单级别   
+ftn_type   VARCHAR(50)   YES         菜单类型（未用）   
+ftn_creation_timestamp   DATE(10)   YES         创建时间   
+ftn_assign   VARCHAR(10)   YES         是否可以分配   
+ftn_tc_related   VARCHAR(10)   YES         是否与培训中心关�?   
+ftn_status   VARCHAR(10)   YES         状�?�（1启用�?0弃用�?   
+ftn_order   INT(10)   YES         排序   
+ftn_parent_id   INT(10)   YES         父ID   
+序号�?3   表名：acrole                  
+备注：角色表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rol_id   INT(10)   NO   P      ID   
+rol_ext_id   VARCHAR(255)   NO         唯一编号   
+rol_seq_id   INT(10)   YES         排序   
+rol_ste_ent_id   INT(10)   NO         集团id   
+rol_url_home   VARCHAR(255)   YES         角色首页url   
+rol_xml   LONGTEXT(2147483647)   YES         弃用   
+rol_ste_default_ind   BIT(1)   NO         新用户第�?次登陆默认角�?   
+rol_report_ind   BIT(1)   NO         角色是否用report功能   
+rol_skin_root   VARCHAR(50)   NO         控制角色样式   
+rol_status   VARCHAR(20)   NO         状�??   
+rol_ste_uid   VARCHAR(20)   YES         角色编号�?�?   
+rol_target_ent_type   VARCHAR(50)   YES            
+rol_auth_level   INT(10)   YES         身份验证级别   
+rol_tc_ind   INT(10)   NO         是否与培训中心关�?(1,�?,0,�?)   
+rol_title   VARCHAR(255)   YES         角色名称   
+rol_type   VARCHAR(20)   YES         角色类型   
+rol_create_usr_id   VARCHAR(20)   YES         创建�?   
+rol_update_timestamp   DATETIME(19)   YES         修改时间   
+rol_update_usr_id   VARCHAR(20)   YES         修改�?   
+rol_create_timestamp   DATETIME(19)   YES         修改时间   
+序号�?4   表名：acrolefunction                  
+备注：角色功能关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rfn_rol_id   INT(10)   NO   P      角色ID   
+rfn_ftn_id   INT(10)   NO   P      菜单功能ID   
+rfn_create_usr_id   VARCHAR(20)   YES         创建人reguser.usrId   
+RFN_CREATE_TIMESTAMP   DATE(10)   YES         创建时间   
+rfn_ftn_favorite   VARCHAR(10)   YES         弃用   
+rfn_ftn_order   INT(10)   YES         排序   
+rfn_ftn_parent_id   INT(10)   YES         父ID   
+序号�?5   表名：acsite                  
+备注：集团表�?5.0版本有多个acsite对照多个wethink                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ste_ent_id   INT(10)   NO   P      编号   
+ste_name   MEDIUMTEXT(16777215)   NO         名称   
+ste_join_datetime   DATE(10)   YES         加入时间   
+ste_status   VARCHAR(10)   NO         状�??   
+ste_domain   VARCHAR(255)   NO         域名   
+ste_login_url   VARCHAR(255)   NO         登录链接地址   
+ste_ird_id   INT(10)   YES            
+ste_trusted   BIT(1)   NO            
+ste_max_users   VARCHAR(100)   YES         �?大用户数   
+ste_eff_start_date   VARCHAR(100)   YES            
+ste_eff_end_date   VARCHAR(100)   YES            
+ste_max_login_trial   SMALLINT(5)   YES         登录�?大尝试次�?   
+ste_cov_syn_datetime   DATETIME(19)   YES            
+ste_default_sys_ent_id   INT(10)   YES            
+ste_targeted_entity_lst   VARCHAR(50)   YES            
+ste_rsv_min_gap   INT(10)   YES            
+ste_rsv_min_len   INT(10)   YES            
+ste_rsv_link   TEXT(65535)   YES            
+ste_lan_xml   VARCHAR(255)   NO            
+ste_guest_ent_id   INT(10)   YES            
+ste_ctl_4   VARCHAR(100)   YES            
+ste_target_by_peer_ind   INT(10)   NO            
+ste_ldap_host   VARCHAR(255)   YES            
+ste_ldap_dn   VARCHAR(200)   YES            
+ste_appr_staff_role   VARCHAR(255)   YES            
+ste_usr_pwd_valid_period   INT(10)   YES            
+ste_qr_mod_types   VARCHAR(200)   YES            
+ste_id   VARCHAR(10)   YES            
+ste_type   VARCHAR(50)   NO            
+ste_developer_id   VARCHAR(128)   YES            
+序号�?6   表名：aeapplication                  
+备注：报名表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+app_id   INT(10)   NO   P      ID   
+app_ent_id   INT(10)   NO         用户ID   
+app_itm_id   INT(10)   NO         课程ID   
+app_status   VARCHAR(20)   NO         报名状�??   
+app_process_status   VARCHAR(50)   NO         报名Process状�??   
+app_process_xml   LONGTEXT(2147483647)   NO            
+app_xml   LONGTEXT(2147483647)   YES            
+app_create_timestamp   DATETIME(19)   NO         创建时间   
+app_create_usr_id   VARCHAR(20)   NO         创建�?   
+app_upd_timestamp   DATETIME(19)   NO         更新时间   
+app_upd_usr_id   VARCHAR(20)   NO         更新�?   
+app_ext1   VARCHAR(255)   YES            
+app_ext2   INT(10)   YES            
+app_ext3   VARCHAR(255)   YES            
+app_notify_datetime   DATETIME(19)   YES         通知时间   
+app_notify_status   SMALLINT(5)   YES         报名通知状�??   
+app_syn_date   DATETIME(19)   YES            
+app_ext4   LONGTEXT(2147483647)   YES            
+app_usr_prof_xml   LONGTEXT(2147483647)   YES            
+app_priority   VARCHAR(20)   YES            
+app_tkh_id   INT(10)   YES            
+app_note   LONGTEXT(2147483647)   YES            
+app_nominate_type   VARCHAR(20)   YES         上司推荐SUP,培训部推荐TADM   
+序号�?7   表名：aeappnactnhistory                  
+备注：报名历史记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+aah_id   INT(10)   NO   P      ID   
+aah_app_id   INT(10)   NO         报名记录ID   
+aah_process_id   INT(10)   NO         进程   
+aah_fr   VARCHAR(100)   YES         �?始进�?   
+aah_to   VARCHAR(100)   YES         下一个进�?   
+aah_verb   VARCHAR(100)   YES         进程操作结果   
+aah_fr_status_id   INT(10)   YES            
+aah_to_status_id   INT(10)   YES            
+aah_action_id   INT(10)   YES         动作ID(报名流程XML中action节点ID)   
+aah_create_usr_id   VARCHAR(20)   NO         创建�?   
+aah_create_timestamp   DATETIME(19)   NO         创建时间   
+aah_upd_usr_id   VARCHAR(20)   NO         修改�?   
+aah_upd_timestamp   DATETIME(19)   NO         修改时间   
+aah_actn_type   VARCHAR(50)   YES         操作类型   
+序号�?8   表名：aeappnapprovallist                  
+备注：报名审批表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+aal_id   INT(10)   NO   P         
+aal_usr_ent_id   INT(10)   NO         审批人ID   
+aal_app_id   INT(10)   NO         报名记录ID   
+aal_app_ent_id   INT(10)   NO         被审批人ID(报名用户ID)   
+aal_approval_role   VARCHAR(50)   NO         审批角色   
+aal_approval_usg_ent_id   INT(10)   YES         审批用户组ID(使用�?)   
+aal_status   VARCHAR(50)   NO         审批状�??   
+aal_create_timestamp   DATETIME(19)   NO         创建时间   
+aal_action_taker_usr_ent_id   INT(10)   YES         下一审批�?   
+aal_action_taker_approval_role   VARCHAR(50)   YES         下一审批角色   
+aal_action_taken   VARCHAR(50)   YES            
+aal_action_timestamp   DATETIME(19)   YES            
+aal_aah_id   INT(10)   YES         审批历史记录   
+序号�?9   表名：aeappncommhistory                  
+备注：报名审批操作原�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ach_id   INT(10)   NO   P         
+ach_app_id   INT(10)   NO         报名记录ID   
+ach_aah_id   INT(10)   YES         审批历史记录   
+ach_create_timestamp   DATETIME(19)   NO         创建时间   
+ach_create_usr_id   VARCHAR(20)   NO         创建�?   
+ach_upd_timestamp   DATETIME(19)   NO         修改时间   
+ach_upd_usr_id   VARCHAR(20)   NO         修改�?   
+ach_content   MEDIUMTEXT(16777215)   YES         备注信息   
+序号�?10   表名：aeappntargetentity                  
+备注：弃�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ate_app_id   INT(10)   NO   P         
+ate_usr_ent_id   INT(10)   NO   P         
+ate_rol_ext_id   VARCHAR(255)   NO   P         
+ate_create_timestamp   DATETIME(19)   NO            
+ate_create_usr_id   VARCHAR(50)   NO            
+序号�?11   表名：aeattendance                  
+备注：学习记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+att_app_id   INT(10)   NO   P      报名记录ID   
+att_ats_id   INT(10)   NO         学习状�?�ID   
+att_remark   VARCHAR(200)   YES         备注信息   
+att_create_usr_id   VARCHAR(20)   NO         创建�?   
+att_create_timestamp   DATETIME(19)   NO         创建时间   
+att_update_usr_id   VARCHAR(20)   YES         修改�?   
+att_update_timestamp   DATETIME(19)   YES         修改时间   
+att_rate   DECIMAL(20)   YES         出席�?   
+att_itm_id   INT(10)   NO         课程ID   
+att_timestamp   DATETIME(19)   YES         完成时间(已完成才有时�?)   
+att_rate_remark   VARCHAR(200)   YES            
+序号�?12   表名：aeattendancestatus                  
+备注：学习记录状态字典表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ats_id   INT(10)   NO   P         
+ats_title_xml   LONGTEXT(2147483647)   NO         状�?�多语言XML（弃用）   
+ats_type   VARCHAR(10)   NO         状�?�类�?   
+ats_attend_ind   BIT(1)   NO         是否完成   
+ats_default_ind   BIT(1)   NO         默认状�??1   
+ats_ent_id_root   INT(10)   YES            
+ats_cov_status   VARCHAR(1)   YES         状�?�类�?(�?�?,学习记录表中使用)   
+序号�?13   表名：aecatalog                  
+备注：一级目录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cat_id   INT(10)   NO   P      ID   
+cat_title   VARCHAR(255)   YES         目录标题   
+cat_public_ind   BIT(1)   NO            
+cat_status   VARCHAR(20)   NO         状�??   
+cat_owner_ent_id   INT(10)   NO            
+cat_create_timestamp   DATETIME(19)   NO         创建时间   
+cat_create_usr_id   VARCHAR(20)   NO         创建�?   
+cat_upd_timestamp   DATETIME(19)   NO         修改时间   
+cat_upd_usr_id   VARCHAR(20)   NO         修改�?   
+cat_code   VARCHAR(50)   YES         编号   
+cat_tcr_id   INT(10)   YES         培训中心ID   
+cat_mobile_ind   INT(10)   YES         手机端是否显�?   
+序号�?14   表名：aecatalogaccess                  
+备注：目录权限表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cac_id   INT(10)   NO   P      ID   
+cac_ent_id   INT(10)   YES         用户ID   
+cac_cat_id   INT(10)   NO         目录ID   
+cac_create_timestamp   DATETIME(19)   NO         创建时间   
+cac_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?15   表名：aecatalogitemtype                  
+备注：集团与顶级目录关联关系                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cit_id   INT(10)   NO   P         
+cit_cat_id   INT(10)   NO         目录ID   
+cit_ity_owner_ent_id   INT(10)   YES         集团ID   
+cit_ity_id   VARCHAR(20)   YES            
+cit_create_timestamp   DATETIME(19)   NO         创建时间   
+cit_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?16   表名：aeitem                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itm_id   INT(10)   NO   P      ID   
+itm_uuid   VARCHAR(36)   YES         uuid   
+itm_title   VARCHAR(255)   YES         标题   
+itm_code   VARCHAR(255)   YES         编号   
+itm_version_code   VARCHAR(50)   YES         弃用   
+itm_type   VARCHAR(20)   NO         类型   
+itm_capacity   INT(10)   YES         课程容量/名额限制   
+itm_min_capacity   INT(10)   YES         �?小课程容�?/名额限制   
+itm_unit   DECIMAL(20)   YES            
+itm_fee_ccy   VARCHAR(3)   YES            
+itm_fee   DOUBLE(22)   YES         报名费用   
+itm_appn_start_datetime   DATETIME(19)   YES         报名�?始日�?   
+itm_appn_end_datetime   DATETIME(19)   YES         报名结束日期   
+itm_eff_start_datetime   DATETIME(19)   YES         面授�?始时�?   
+itm_eff_end_datetime   DATETIME(19)   YES         面授结束时间   
+itm_xml   LONGTEXT(2147483647)   YES            
+itm_status   VARCHAR(20)   NO         是否发布课程ON发布/OFF未发�?   
+itm_owner_ent_id   INT(10)   NO            
+itm_create_timestamp   DATETIME(19)   NO            
+itm_create_usr_id   VARCHAR(20)   NO            
+itm_upd_timestamp   DATETIME(19)   NO            
+itm_upd_usr_id   VARCHAR(20)   NO            
+itm_ext1   VARCHAR(255)   YES            
+itm_create_run_ind   BIT(1)   NO         能否创建班级   
+itm_run_ind   BIT(1)   NO         是否班级   
+itm_apply_ind   BIT(1)   NO         是否可使用应用课�?(网上课程可直接学�?,离线课程�?要添加班级在班级下学�?)   
+itm_deprecated_ind   BIT(1)   NO            
+itm_qdb_ind   BIT(1)   NO         是否为学习课�?(如图�?/网站之类的为非学习课�?)（弃用）   
+itm_auto_enrol_qdb_ind   BIT(1)   NO            
+itm_life_status   VARCHAR(50)   YES            
+itm_apply_method   VARCHAR(50)   YES            
+itm_imd_id   INT(10)   YES            
+itm_person_in_charge   VARCHAR(255)   YES            
+itm_rsv_id   INT(10)   YES            
+itm_cancellation_reason   TEXT(65535)   YES            
+itm_cancellation_type   VARCHAR(255)   YES            
+itm_ctf_id   INT(10)   YES            
+itm_syn_timestamp   DATETIME(19)   YES            
+itm_create_session_ind   INT(10)   NO            
+itm_session_ind   INT(10)   NO            
+itm_has_attendance_ind   INT(10)   NO            
+itm_ji_ind   INT(10)   NO            
+itm_completion_criteria_ind   INT(10)   NO            
+itm_fee_1   DECIMAL(11)   YES            
+itm_can_cancel_ind   BIT(1)   YES            
+itm_content_eff_start_datetime   DATETIME(19)   YES         网上内容期限结束时间   
+itm_content_eff_end_datetime   DATETIME(19)   YES         网上内容期限结束时间   
+itm_content_eff_duration   INT(10)   YES         从学员被成功报名后多少天�?始计�?   
+itm_can_qr_ind   BIT(1)   YES            
+itm_retake_ind   INT(10)   YES         是否可重�? 1、允�? 0、禁�? -1、保持不�?   
+itm_approval_status   VARCHAR(20)   YES            
+itm_approval_action   VARCHAR(20)   YES            
+itm_approve_timestamp   DATETIME(19)   YES            
+itm_approve_usr_id   VARCHAR(20)   YES            
+itm_submit_action   VARCHAR(20)   YES            
+itm_submit_timestamp   DATETIME(19)   YES            
+itm_submit_usr_id   VARCHAR(20)   YES            
+itm_app_approval_type   VARCHAR(50)   YES            
+itm_tcr_id   INT(10)   YES         培训中心ID   
+itm_content_def   VARCHAR(50)   YES            
+itm_enroll_type   VARCHAR(50)   YES            
+itm_send_enroll_email_ind   INT(10)   YES         发�?�报名�?�知   
+itm_qte_notify_timestamp   DATETIME(19)   YES            
+itm_access_type   VARCHAR(50)   YES            
+itm_mark_buffer_day   INT(10)   YES         延长结训结算时间   
+itm_notify_days   INT(10)   YES         发�?�结束提醒邮件的提前天数   
+itm_notify_email   VARCHAR(255)   YES         通知邮件   
+itm_not_allow_waitlist_ind   INT(10)   YES         允许等待队列   
+itm_target_enrol_type   VARCHAR(20)   YES            
+itm_comment_avg_score   DECIMAL(11)   YES            
+itm_comment_total_count   INT(10)   YES            
+itm_comment_total_score   INT(10)   YES            
+itm_publish_timestamp   DATETIME(19)   YES         发布日期   
+itm_srh_content   LONGTEXT(2147483647)   YES            
+itm_desc   MEDIUMTEXT(16777215)   YES         �?�?   
+itm_plan_code   VARCHAR(50)   YES         计划实施编号   
+itm_icon   VARCHAR(400)   YES         图片   
+itm_exam_ind   INT(10)   YES         是否考试   
+itm_blend_ind   INT(10)   YES         是否混合式课�?   
+itm_ref_ind   INT(10)   YES         是否为公�?�?   
+itm_bonus_ind   BIT(1)   YES         自动积分   
+itm_diff_factor   DECIMAL(10)   YES         难度系数   
+itm_integrated_ind   INT(10)   NO         是否为项目式培训   
+itm_share_ind   BIT(1)   NO         是否共享课程   
+itm_offline_pkg   VARCHAR(255)   YES            
+itm_offline_pkg_file   VARCHAR(255)   YES            
+itm_cfc_id   INT(10)   YES         证书ID   
+itm_inst_type   VARCHAR(52)   YES            
+itm_parent_id   INT(10)   YES            
+itm_ji_send_datetime   DATETIME(19)   YES            
+itm_reminder_send_datetime   DATETIME(19)   YES            
+itm_mobile_ind   VARCHAR(5)   YES         是否在移动端显示   
+序号�?17   表名：aeitemaccess                  
+备注：课程管理员关系                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+iac_itm_id   INT(10)   NO   P      课程ID   
+iac_ent_id   INT(10)   NO   P      管理员ID   
+iac_access_type   VARCHAR(30)   NO         访问类型ROLE   
+iac_access_id   VARCHAR(30)   NO   P      角色信息唯一编号TADM_1/INSTR_1�?   
+iac_syn_timestamp   DATETIME(19)   YES         更新时间   
+序号�?18   表名：aeitemcost                  
+备注：课程费�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ito_itm_id   INT(10)   NO   P      课程ID   
+ito_type   INT(10)   NO   P      类型（场�?1,交�?�费�?2,讲师费用3,教材费用4,餐费5,其他6, 住宿7�?   
+ito_budget   DECIMAL(20)   YES         预算费用   
+ito_actual   DECIMAL(20)   YES         实际费用   
+ito_create_timestamp   DATETIME(19)   NO         创建时间   
+ito_create_usr_id   VARCHAR(20)   NO         创建�?   
+ito_update_timestamp   DATETIME(19)   NO         修改时间   
+ito_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?19   表名：aeitemextension                  
+备注：课程扩展表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ies_itm_id   INT(10)   NO   P      课程ID   
+ies_lang   LONGTEXT(2147483647)   YES            
+ies_objective   LONGTEXT(2147483647)   YES         目标   
+ies_contents   LONGTEXT(2147483647)   YES         内容   
+ies_duration   LONGTEXT(2147483647)   YES         时长   
+ies_audience   LONGTEXT(2147483647)   YES         对象   
+ies_prerequisites   LONGTEXT(2147483647)   YES         必备基础知识   
+ies_exemptions   LONGTEXT(2147483647)   YES         免修条件   
+ies_remarks   LONGTEXT(2147483647)   YES         备注   
+ies_enroll_confirm_remarks   LONGTEXT(2147483647)   YES         确认报名备注   
+ies_schedule   LONGTEXT(2147483647)   YES            
+ies_itm_ref_materials_1   TEXT(65535)   YES            
+ies_itm_ref_materials_2   TEXT(65535)   YES            
+ies_itm_ref_materials_3   TEXT(65535)   YES            
+ies_itm_ref_materials_4   TEXT(65535)   YES            
+ies_itm_ref_materials_5   TEXT(65535)   YES            
+ies_itm_ref_url_1   TEXT(65535)   YES            
+ies_itm_ref_url_2   TEXT(65535)   YES            
+ies_itm_ref_url_3   TEXT(65535)   YES            
+ies_itm_ref_url_4   TEXT(65535)   YES            
+ies_itm_ref_url_5   TEXT(65535)   YES            
+ies_itm_rel_materials_1   TEXT(65535)   YES            
+ies_itm_rel_materials_2   TEXT(65535)   YES            
+ies_itm_rel_materials_3   TEXT(65535)   YES            
+ies_itm_rel_materials_4   TEXT(65535)   YES            
+ies_itm_rel_materials_5   TEXT(65535)   YES            
+ies_itm_rel_materials_6   TEXT(65535)   YES            
+ies_itm_rel_materials_7   TEXT(65535)   YES            
+ies_itm_rel_materials_8   TEXT(65535)   YES            
+ies_itm_rel_materials_9   TEXT(65535)   YES            
+ies_itm_rel_materials_10   TEXT(65535)   YES            
+ies_top_ind   INT(10)   YES            
+ies_top_icon   VARCHAR(55)   YES            
+ies_credit   DOUBLE(22)   YES         学分   
+ies_access_count   INT(10)   YES         访问�?   
+序号�?20   表名：aeitemlesson                  
+备注：日程表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ils_id   INT(10)   NO   P      ID   
+ils_itm_id   INT(10)   YES         课程ID   
+ils_title   VARCHAR(255)   YES         标题   
+ils_day   INT(10)   YES            
+ils_start_time   DATETIME(19)   YES         �?始时�?   
+ils_end_time   DATETIME(19)   YES         结束时间   
+ils_create_timestamp   DATETIME(19)   YES         创建时间   
+ils_create_usr_id   VARCHAR(20)   YES         创建�?   
+ils_update_timestamp   DATETIME(19)   YES         更新日期   
+ils_update_usr_id   VARCHAR(20)   YES         修改�?   
+ils_place   VARCHAR(200)   YES         地址   
+ils_date   DATETIME(19)   YES         日程日期   
+ils_qiandao   INT(10)   NO         是否�?要签�?   
+ils_qiandao_chidao   INT(10)   YES         迟到（分钟）   
+ils_qiandao_queqin   INT(10)   YES         缺勤（分钟）   
+ils_qiandao_youxiaoqi   INT(10)   YES         有效签到时间   
+ils_qiandao_chidao_time   DATETIME(19)   YES         签到迟到时间   
+ils_qiandao_queqin_time   DATETIME(19)   YES         签到缺勤时间   
+ils_qiandao_youxiaoqi_time   DATETIME(19)   YES         签到有效时间   
+ils_mod_id   INT(10)   YES         日程�? - 关联问卷id   
+ils_lecturer_type   VARCHAR(10)   YES         讲师类型   
+序号�?21   表名：aeitemlessoninstructor                  
+备注：课程日程讲�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ili_ils_id   INT(10)   NO   P      日程表ID   
+ili_usr_ent_id   INT(10)   NO   P      讲师ID   
+ili_create_usr_id   VARCHAR(20)   YES         创建�?   
+ili_create_timestamp   DATETIME(19)   YES         创建时间   
+序号�?22   表名：aeitemlessonqiandao                  
+备注：课程日程签�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ilsqd_id   INT(10)   NO   P      ID   
+ilsqd_usr_ent_id   INT(10)   NO         签到人entId   
+ilsqd_ils_id   INT(10)   NO         签到日程表id   
+ilsqd_ils_itm_id   INT(10)   NO         签到课程itmId   
+ilsqd_app_id   INT(10)   NO         签到人报名id   
+ilsqd_status   INT(10)   NO         签到状�?? 1正常 2迟到 3缺勤   
+ilsqd_date   DATETIME(19)   NO         签到日期   
+ilsqd_create_timestamp   DATETIME(19)   YES         创建时间   
+序号�?23   表名：aeitemmessage                  
+备注：课程开课�?�知邮件信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+img_itm_id   INT(10)   NO   P      课程ID   
+img_app_id   INT(10)   NO         报名ID   
+img_msg_id   INT(10)   NO   P      MessageID   
+img_msg_type   VARCHAR(20)   NO   P      MessageType Message Type (email|web)   
+img_mtp_type   VARCHAR(20)   NO         JI|REMINDER   
+img_create_usr_id   VARCHAR(20)   NO            
+img_create_timestamp   DATETIME(19)   NO            
+img_update_usr_id   VARCHAR(20)   NO            
+img_update_timestamp   DATETIME(19)   NO            
+序号�?24   表名：aeitemrelation                  
+备注：课程和班级关系                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ire_parent_itm_id   INT(10)   NO   P      课程ID   
+ire_child_itm_id   INT(10)   NO   P      班级ID   
+ire_create_timestamp   DATETIME(19)   NO         创建时间   
+ire_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?25   表名：aeitemreqduedate                  
+备注：弃�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ird_id   INT(10)   NO            
+ird_itr_itm_id   INT(10)   NO   P         
+ird_itr_order   INT(10)   NO   P         
+ird_child_itm_id   INT(10)   NO   P         
+ird_requirement_due_date   DATETIME(19)   NO            
+序号�?26   表名：aeitemrequirement                  
+备注：课程先修条件表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itr_itm_id   INT(10)   NO   P      课程itmId   
+itr_order   INT(10)   NO   P      先修条件序号   
+itr_requirement_type   VARCHAR(20)   NO         先修类型   
+itr_requirement_subtype   VARCHAR(20)   YES         子类�?   
+itr_requirement_restriction   VARCHAR(20)   YES            
+itr_requirement_due_date   DATETIME(19)   YES            
+itr_appn_footnote_ind   INT(10)   NO            
+itr_condition_type   VARCHAR(20)   NO         先修条件类型   
+itr_condition_rule   LONGTEXT(2147483647)   NO         先修条件规则   
+itr_positive_iat_id   INT(10)   YES            
+itr_negative_iat_id   INT(10)   YES            
+itr_proc_execute_timestamp   DATETIME(19)   YES            
+itr_create_timestamp   DATETIME(19)   NO         创建时间   
+itr_create_usr_id   VARCHAR(20)   NO         创建�?   
+itr_update_timestamp   DATETIME(19)   NO         修改时间   
+itr_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?27   表名：aeitemtargetrule                  
+备注：课程目标学员规�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itr_id   INT(10)   NO   P         
+itr_uuid   VARCHAR(36)   YES            
+itr_itm_id   INT(10)   NO         课程ID   
+itr_group_id   VARCHAR(2000)   NO         用户组ID(多个以�?�号分隔)   
+itr_grade_id   VARCHAR(2000)   NO         用户职位ID(多个以�?�号分隔)   
+itr_type   VARCHAR(20)   NO         类型   
+itr_create_usr_id   VARCHAR(20)   NO         创建�?   
+itr_create_timestamp   DATETIME(19)   NO         创建时间   
+itr_update_usr_id   VARCHAR(20)   NO         修改�?   
+itr_update_timestamp   DATETIME(19)   NO         修改时间   
+itr_upt_id   MEDIUMTEXT(16777215)   YES         岗位ID   
+itr_group_ind   INT(10)   YES         用户组关键维�?   
+itr_grade_ind   INT(10)   YES         职级关键维度   
+itr_position_ind   INT UNSIGNED(10)   YES         岗位关键维度   
+itr_compulsory_ind   INT(10)   YES         是否为必�?   
+序号�?28   表名：aeitemtargetruledetail                  
+备注：课程目标学员规则明�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ird_itm_id   INT(10)   NO   P      课程ID   
+ird_itr_id   INT(10)   NO   P      目标学员规则ID   
+ird_group_id   INT(10)   NO   P      目标用户�?   
+ird_grade_id   INT(10)   NO   P      目标职级   
+ird_type   VARCHAR(20)   NO         目标学员规则类型   
+ird_create_usr_id   VARCHAR(20)   NO         创建用户   
+ird_create_timestamp   DATETIME(19)   NO         创建时间   
+ird_update_usr_id   VARCHAR(20)   NO         更新用户   
+ird_update_timestamp   DATETIME(19)   NO         更新时间   
+ird_upt_id   INT(10)   NO   P      目标岗位   
+序号�?29   表名：aeitemtemplate                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itp_itm_id   INT(10)   NO   P      课程ID AEITEM.ITM_ID   
+itp_ttp_id   INT(10)   NO   P      模板类型ID AETEMPLATETYPE.TTP_ID   
+itp_tpl_id   INT(10)   NO         模块ID AETEMPLATE.TPL_ID   
+itp_create_timestamp   DATETIME(19)   NO         创建时间   
+itp_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?30   表名：aeitemtype                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ity_owner_ent_id   INT(10)   NO   P      集团ID   
+ity_id   VARCHAR(20)   NO   P      类型编号   
+ity_run_ind   INT(10)   NO   P      是否班级   
+ity_seq_id   INT(10)   NO         排序   
+ity_title_xml   LONGTEXT(2147483647)   NO         描述xml   
+ity_icon_url   VARCHAR(50)   YES         图标路径   
+ity_create_timestamp   DATETIME(19)   NO         创建时间   
+ity_create_usr_id   VARCHAR(20)   NO         创建�?   
+ity_init_life_status   VARCHAR(50)   YES            
+ity_create_run_ind   BIT(1)   YES         是否能创建班�?   
+ity_apply_ind   BIT(1)   YES         是否为可报名课程   
+ity_qdb_ind   BIT(1)   YES            
+ity_auto_enrol_qdb_ind   BIT(1)   YES            
+ity_cascade_inherit_col   TEXT(65535)   YES            
+ity_certificate_ind   INT(10)   YES            
+ity_session_ind   INT(10)   NO            
+ity_create_session_ind   INT(10)   NO            
+ity_has_attendance_ind   INT(10)   NO            
+ity_ji_ind   INT(10)   NO            
+ity_completion_criteria_ind   INT(10)   NO            
+ity_can_cancel_ind   BIT(1)   YES            
+ity_target_method   VARCHAR(30)   YES            
+ity_reminder_criteria_ind   BIT(1)   NO            
+ity_tkh_method   VARCHAR(20)   YES            
+ity_exam_ind   INT(10)   NO   P         
+ity_blend_ind   INT(10)   NO   P         
+ity_ref_ind   INT(10)   NO   P         
+ity_integ_ind   INT(10)   NO            
+序号�?31   表名：aetemplate                  
+备注：课程XML配置模板(通过XML文件写入到数据库表中)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tpl_id   INT(10)   NO   P         
+tpl_ttp_id   INT(10)   NO         课程模板类型ID AETEMPLATETYPE.TTP_ID   
+tpl_title   VARCHAR(50)   NO         模板名称   
+tpl_xml   LONGTEXT(2147483647)   NO         模板xml   
+tpl_owner_ent_id   INT(10)   NO         �?属集团ID(默认1)   
+tpl_create_timestamp   DATETIME(19)   NO         创建时间   
+tpl_create_usr_id   VARCHAR(20)   NO         创建�?   
+tpl_upd_timestamp   DATETIME(19)   NO         修改时间   
+tpl_upd_usr_id   VARCHAR(20)   NO         修改�?   
+tpl_approval_ind   INT(10)   NO         是否是审批流程模板配�?   
+序号�?32   表名：aetemplatetype                  
+备注：课程类型模板配�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ttp_id   INT(10)   NO   P         
+ttp_title   VARCHAR(50)   NO            
+序号�?33   表名：aetreenode                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tnd_id   INT(10)   NO   P         
+tnd_uuid   VARCHAR(36)   YES            
+tnd_title   VARCHAR(255)   YES         目录/课程 名称   
+tnd_status   VARCHAR(20)   YES         发布状�??   
+tnd_type   VARCHAR(20)   YES         类型(如：CATALOG为第�?层目�?,ITEM为课�?,NORMAL为子目录(非第�?�?))   
+tnd_itm_cnt   INT(10)   NO            
+tnd_on_itm_cnt   INT(10)   NO            
+tnd_cat_id   INT(10)   NO         目录ID AECATALOG.CAT_ID   
+tnd_parent_tnd_id   INT(10)   YES         父tnd_id(当类型是ITEM课程时�?�为课程�?在目录ID,当类型为NORMAL子目录时,值为父目录ID)  AETREENODE.TND_ID   
+tnd_link_tnd_id   INT(10)   YES         AETREENODE.TND_ID   
+tnd_itm_id   INT(10)   YES         课程ID(类型为ITEM时存�?)   
+tnd_create_timestamp   DATETIME(19)   NO         创建�?   
+tnd_create_usr_id   VARCHAR(20)   NO         创建时间   
+tnd_upd_timestamp   DATETIME(19)   NO         修改时间   
+tnd_upd_usr_id   VARCHAR(20)   NO         修改�?   
+tnd_ext1   VARCHAR(255)   YES            
+tnd_ext2   VARCHAR(255)   YES            
+tnd_ext3   VARCHAR(255)   YES            
+tnd_ext4   VARCHAR(255)   YES            
+tnd_ext5   VARCHAR(255)   YES            
+tnd_desc   VARCHAR(2000)   YES            
+tnd_order   INT(10)   YES            
+tnd_owner_ent_id   INT(10)   NO            
+tnd_code   VARCHAR(50)   YES            
+tnd_syn_timestamp   DATETIME(19)   YES            
+序号�?34   表名：aetreenoderelation                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tnr_child_tnd_id   INT(10)   NO   P      子节点ID AETREENODE.TND_ID   
+tnr_ancestor_tnd_id   INT(10)   NO   P      顶级父节点ID AETREENODE.TND_ID   
+tnr_type   VARCHAR(20)   NO         节点类型   
+tnr_order   INT(10)   NO         节点序号   
+tnr_parent_ind   INT(10)   NO         上级父节�?   
+tnr_remain_on_syn   INT(10)   NO         是否同步数据   
+tnr_create_timestamp   DATETIME(19)   NO         创建时间   
+tnr_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?35   表名：afterclassevaluationanswer                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+acea_id   INT(10)   NO   P         
+acea_title   VARCHAR(250)   YES            
+acea_score   FLOAT(12)   NO            
+acea_index   SMALLINT(5)   NO            
+acea_aces_id   INT(10)   NO            
+序号�?36   表名：afterclassevaluationmodel                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+acem_id   INT(10)   NO   P         
+acem_type   SMALLINT(5)   NO            
+acem_title   VARCHAR(250)   NO            
+acem_status   SMALLINT(5)   NO            
+acem_introduction   VARCHAR(1000)   YES            
+acem_create_time   TIMESTAMP(19)   NO            
+acem_update_time   TIMESTAMP(19)   YES            
+acem_create_user   INT(10)   NO            
+acem_update_user   INT(10)   YES            
+序号�?37   表名：afterclassevaluationsubject                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+aces_id   INT(10)   NO   P         
+aces_title   VARCHAR(5120)   NO            
+aces_type   SMALLINT(5)   NO            
+aces_category   SMALLINT(5)   NO            
+aces_status   SMALLINT(5)   NO            
+aces_index   SMALLINT(5)   NO            
+aces_create_time   TIMESTAMP(19)   NO            
+aces_update_time   TIMESTAMP(19)   YES            
+aces_create_user   INT(10)   NO            
+aces_update_user   INT(10)   YES            
+aces_acem_id   INT(10)   NO            
+序号�?38   表名：answerrecord                  
+备注：问卷答题记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ar_id   INT(10)   NO   P      答题记录id   
+ar_itm_id   INT(10)   NO         课程/班级id   
+ar_ils_id   INT(10)   NO         日程表id   
+ar_ils_title   VARCHAR(50)   YES         日程表title   
+ar_lecturer_id   INT(10)   YES         讲师id   
+ar_lecturer_name   VARCHAR(50)   YES         讲师名称   
+ar_mes_id   INT(10)   NO         copy表题目id   
+ar_mes_type   SMALLINT(5)   NO         copy表题目种�?   
+ar_mes_title   VARCHAR(255)   NO         copy表题目title   
+ar_usr_ent_id   INT(10)   NO         提交人entId   
+ar_usr_display_bil   VARCHAR(255)   NO         提交人姓�?   
+ar_ils_start_time   TIMESTAMP(19)   NO         日程表开始时�?   
+ar_ils_end_time   TIMESTAMP(19)   NO         日程表结束时�?   
+ar_mod_id   INT(10)   NO         模块id   
+ar_start_time   TIMESTAMP(19)   NO         问卷答题�?始时�?   
+ar_submit_time   TIMESTAMP(19)   NO         问卷提交时间   
+ar_app_tkh_id   INT(10)   NO         用户报名tkh_id   
+ar_status   SMALLINT(5)   NO            
+序号�?39   表名：apitoken                  
+备注：供移动API保存Token                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+atk_id   VARCHAR(64)   NO   P      随机生成的标�?   
+atk_usr_id   VARCHAR(64)   NO         用户ID   
+atk_usr_ent_id   INT(10)   YES         用户entID   
+atk_create_timestamp   DATETIME(19)   YES         创建时间   
+atk_expiry_timestamp   DATETIME(19)   YES         有效期限   
+atk_developer_id   VARCHAR(128)   NO         请求客户端标�?   
+atk_wechat_open_id   VARCHAR(100)   YES         微信ID   
+序号�?40   表名：appclient                  
+备注：app消息推�?�，客户端记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+id   BIGINT(19)   NO   P      ID   
+mobileInd   VARCHAR(10)   NO         手机标识，Android or IOS    
+usrEntId   INT(10)   YES         对应平台的用户id   
+clientId   VARCHAR(100)   YES         手机app对应的id，每台手机每个应用都对应�?个clientId   
+appId   VARCHAR(50)   YES         整个应用的标�?(注意：不是打包时的appId，是推�?�配置的appId)   
+status   VARCHAR(10)   YES         app登录状�?�，当用户�??出app时，为�?�offline】，登录时，为�?�online�?   
+序号�?41   表名：article                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+art_id   INT(10)   NO   P         
+art_title   VARCHAR(255)   YES            
+art_introduction   TEXT(65535)   YES            
+art_keywords   VARCHAR(255)   YES            
+art_content   LONGTEXT(2147483647)   YES            
+art_user_id   INT(10)   YES            
+art_create_datetime   DATETIME(19)   YES            
+art_update_datetime   DATETIME(19)   YES            
+art_update_user_id   INT(10)   YES            
+art_location   VARCHAR(255)   YES            
+art_type   VARCHAR(10)   YES            
+art_status   INT(10)   YES            
+art_tcr_id   INT(10)   YES            
+art_push_mobile   INT(10)   YES            
+art_is_html   INT(10)   YES            
+art_icon_file   VARCHAR(100)   YES            
+art_access_count   INT(10)   YES            
+序号�?42   表名：articletype                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+aty_id   INT(10)   NO   P      自增�?   
+aty_title   VARCHAR(255)   YES         类型名称   
+aty_tcr_id   INT(10)   YES         �?属培训中�?   
+aty_create_user_id   VARCHAR(50)   YES            
+aty_create_datetime   DATETIME(19)   YES            
+aty_update_user_id   VARCHAR(50)   YES            
+aty_update_datetime   DATETIME(19)   YES            
+序号�?43   表名：assignment                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ass_res_id   INT(10)   NO   P         
+ass_max_upload   INT(10)   NO            
+ass_email   VARCHAR(50)   YES            
+ass_notify_ind   VARCHAR(1)   NO            
+ass_due_datetime   DATETIME(19)   YES            
+ass_files_desc_xml   LONGTEXT(2147483647)   YES            
+ass_due_date_day   INT(10)   YES            
+ass_submission   TEXT(65535)   YES            
+序号�?44   表名：attachment                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+att_id   INT(10)   NO   P         
+att_type   VARCHAR(10)   NO            
+att_filename   VARCHAR(255)   YES            
+att_desc   LONGTEXT(2147483647)   YES            
+att_att_id_parent   INT(10)   YES            
+序号�?45   表名：certificate                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cfc_id   INT(10)   NO   P      ID   
+cfc_title   VARCHAR(100)   NO         证书名称   
+cfc_img   VARCHAR(200)   NO         证书背景图片   
+cfc_tcr_id   INT(10)   NO         证书�?属培训中�?   
+cfc_status   VARCHAR(10)   NO         证书发布状�??   
+cfc_create_datetime   DATETIME(19)   YES         创建时间   
+cfc_create_user_id   VARCHAR(50)   YES         创建�?   
+cfc_update_datetime   DATETIME(19)   YES         修改时间   
+cfc_update_user_id   VARCHAR(50)   YES         修改�?   
+cfc_delete_datetime   DATETIME(19)   YES         删除时间   
+cfc_delete_user_id   VARCHAR(50)   YES         删除�?   
+cfc_code   VARCHAR(255)   NO         证书编号   
+cfc_end_date   DATETIME(19)   YES         证书有效�?   
+序号�?46   表名：course                  
+备注：课程基�?�?(创建课程会在此添加一条记�?)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cos_res_id   INT(10)   NO   P      RESOURCES.RES_ID   
+cos_itm_id   INT(10)   YES         课程ID   
+cos_pre_test_req_bil   VARCHAR(50)   YES            
+cos_post_test_req_bil   VARCHAR(50)   YES            
+cos_eff_start_datetime   DATETIME(19)   YES            
+cos_eff_end_datetime   DATETIME(19)   YES            
+cos_content_xml   LONGTEXT(2147483647)   YES            
+cos_structure_xml   LONGTEXT(2147483647)   YES         课程下学习模块资源的树状结构xml   
+cos_import_xml   LONGTEXT(2147483647)   YES            
+cos_import_datetime   DATETIME(19)   YES            
+cos_aicc_version   VARCHAR(50)   YES            
+cos_vendor   VARCHAR(255)   YES            
+cos_max_normal   INT(10)   YES            
+cos_lic_key   VARCHAR(50)   YES            
+cos_structure_json   LONGTEXT(2147483647)   YES         课程下学习模块资源的树状结构xml 转换成的json格式数据   
+序号�?47   表名：coursecriteria                  
+备注：课程完成准则结训条件，添加�?个课程相应保存一条完成准则数�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ccr_id   INT(10)   NO   P         
+ccr_pass_score   DOUBLE(22)   NO         �?要�?�过分数�?   
+ccr_duration   INT(10)   NO            
+ccr_pass_ind   BIT(1)   NO         是否通过   
+ccr_all_cond_ind   BIT(1)   NO            
+ccr_create_timestamp   DATETIME(19)   NO         创建时间   
+ccr_create_usr_id   VARCHAR(50)   NO         创建�?   
+ccr_upd_timestamp   DATETIME(19)   NO         修改时间   
+ccr_upd_usr_id   VARCHAR(50)   NO         修改�?   
+ccr_type   VARCHAR(50)   YES         类型   
+ccr_upd_method   VARCHAR(20)   NO         更新方式   
+ccr_itm_id   INT(10)   NO         课程ID   
+ccr_attendance_rate   INT(10)   YES         �?要�?�过的出席率   
+ccr_offline_condition   MEDIUMTEXT(16777215)   YES         说明   
+ccr_ccr_id_parent   INT(10)   YES         父ID   
+序号�?48   表名：courseevaluation                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cov_cos_id   INT(10)   NO   P      资源(课程)ID COURSE.COS_RES_ID   
+cov_ent_id   INT(10)   NO   P      用户ID   
+cov_commence_datetime   DATETIME(19)   YES         学习�?始时�?   
+cov_last_acc_datetime   DATETIME(19)   YES         �?后一次访问时�?   
+cov_total_time   DOUBLE(22)   YES         学习时长   
+cov_status   VARCHAR(10)   YES         学习状�??   
+cov_status_ovrdn_ind   BIT(1)   NO            
+cov_score   DECIMAL(20)   YES         分数   
+cov_max_score   DECIMAL(20)   YES         �?大分�?   
+cov_comment   VARCHAR(255)   YES            
+cov_final_ind   BIT(1)   NO         标识该记录是否mark�?(重新计算�?)   
+cov_complete_datetime   DATETIME(19)   YES         完成时间(已完成才有时�?)   
+cov_update_timestamp   DATETIME(19)   NO         记录修改时间   
+cov_tkh_id   INT(10)   NO   P      学习记录ID   
+cov_progress   DECIMAL(11)   YES         进度   
+序号�?49   表名：coursemeasurement                  
+备注：离线完成准则细项或计分项目                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cmt_id   INT(10)   NO   P      ID   
+cmt_title   VARCHAR(255)   NO         计分项目名称   
+cmt_ccr_id   INT(10)   NO         课程完成准则ID   
+cmt_cmr_id   INT(10)   YES         在线完成准则ID   
+cmt_max_score   DECIMAL(20)   NO         �?高分�?   
+cmt_status   VARCHAR(10)   YES         状�?�条�?(满足的条件如�?合格或�?�需递交)   
+cmt_contri_rate   DOUBLE(22)   NO         比重   
+cmt_is_contri_by_score   INT(10)   NO         是否计分项目   
+cmt_create_timestamp   DATETIME(19)   NO         创建时间   
+cmt_create_usr_id   VARCHAR(50)   NO         创建�?   
+cmt_update_timestamp   DATETIME(19)   NO         修改时间   
+cmt_update_usr_id   VARCHAR(50)   NO         修改�?   
+cmt_delete_timestamp   DATETIME(19)   YES         删除时间(有�?�表示已删除记录)   
+cmt_pass_score   DECIMAL(20)   NO         通过分数   
+cmt_status_desc_option   VARCHAR(5)   YES         状�?�条�?(下拉框�?�择的value�?)   
+cmt_order   INT(10)   YES         排序   
+cmt_cmt_id_parent   INT(10)   YES         父ID COURSEMEASUREMENT.CMT_ID   
+cmt_duration   DECIMAL(11)   YES            
+cmt_place   TEXT(65535)   YES            
+序号�?50   表名：coursemodulecriteria                  
+备注：在线完成准则细项或计分项目                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cmr_id   INT(10)   NO   P      ID   
+cmr_uuid   VARCHAR(36)   YES            
+cmr_ccr_id   INT(10)   NO         课程完成准则ID   
+cmr_res_id   INT(10)   NO         模块ID(如测验模块ID)   
+cmr_status   VARCHAR(10)   YES         状�?�条�?(满足的条件如�?合格或�?�需递交)   
+cmr_contri_rate   DOUBLE(22)   NO         模块分数占�?�分数的比重   
+cmr_is_contri_by_score   BIT(1)   NO         是否计分项目   
+cmr_is_contri_on_status   BIT(1)   NO            
+cmr_create_timestamp   DATETIME(19)   NO         创建时间   
+cmr_create_usr_id   VARCHAR(50)   NO         创建�?   
+cmr_upd_timestamp   DATETIME(19)   NO         修改时间   
+cmr_upd_usr_id   VARCHAR(50)   NO         修改�?   
+cmr_del_timestamp   DATETIME(19)   YES         删除时间(有�?�表示已删除记录)   
+cmr_status_desc_option   VARCHAR(100)   YES         选择状�?�条件的value�?(满足的条件如�?合格或�?�需递交)   
+cmr_cmr_id_parent   INT(10)   YES         父ID COURSEMODULECRITERIA.CMR_ID   
+序号�?51   表名：creditstype                  
+备注：积分管理类�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+cty_id   INT(10)   NO   P      ID   
+cty_code   VARCHAR(255)   YES         类型编号   
+cty_title   VARCHAR(100)   NO         类型名称   
+cty_deduction_ind   INT(10)   NO         是否扣分设置   
+cty_manual_ind   INT(10)   NO         是否手工设置积分   
+cty_deleted_ind   INT(10)   NO         记录是否删除   
+cty_relation_total_ind   INT(10)   NO            
+cty_relation_type   VARCHAR(10)   YES            
+cty_default_credits_ind   INT(10)   NO         是否默认积分   
+cty_default_credits   DOUBLE(22)   YES         默认积分�?   
+cty_create_usr_id   VARCHAR(20)   NO         创建�?   
+cty_create_timestamp   DATETIME(19)   NO         创建时间   
+cty_update_usr_id   VARCHAR(20)   NO         修改�?   
+cty_update_timestamp   DATETIME(19)   NO         修改时间   
+cty_hit   INT(10)   YES         每月�?多计算的次数   
+cty_period   VARCHAR(20)   YES         期限(按月�?)   
+cty_tcr_id   INT(10)   YES         培训中心ID   
+序号�?52   表名：ctreference                  
+备注：参考资料信息表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ref_id   INT(10)   NO   P      ID   
+ref_res_id   INT(10)   NO         资源ID   
+ref_type   VARCHAR(10)   YES         参�?�类�?   
+ref_title   VARCHAR(255)   NO         标题   
+ref_description   LONGTEXT(2147483647)   YES         备注   
+ref_url   VARCHAR(1024)   YES         跳转url   
+ref_create_usr_id   VARCHAR(20)   NO            
+ref_create_timestamp   DATETIME(19)   NO            
+ref_update_usr_id   VARCHAR(20)   NO            
+ref_update_timestamp   DATETIME(19)   NO            
+序号�?53   表名：deleteduserinfo                  
+备注：物理删除用户信息记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+dui_usr_ent_id   INT(10)   NO   P      用户ID   
+dui_usr_ste_usr_id   VARCHAR(255)   NO         用户账号   
+dui_usr_display_bil   VARCHAR(255)   NO         用户名称   
+dui_delete_timestamp   DATETIME(19)   NO         删除时间   
+dui_syn_delete_sync   INT(10)   YES         标记删除   
+序号�?54   表名：emailmessage                  
+备注：邮件信息发送表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emsg_id   INT(10)   NO   P      ID   
+emsg_mtp_id   INT(10)   YES         模板ID  MESSAGETEMPLATE.MTP_ID   
+emsg_send_ent_id   INT(10)   NO         发件�?   
+emsg_rec_ent_ids   MEDIUMTEXT(16777215)   NO         收件�?   
+emsg_cc_ent_ids   MEDIUMTEXT(16777215)   YES         抄�?�人   
+emsg_subject   VARCHAR(255)   NO         邮件主题   
+emsg_content   LONGTEXT(2147483647)   NO         邮件内容   
+emsg_target_datetime   DATETIME(19)   YES         定时发�?�时�?   
+emsg_create_ent_id   INT(10)   NO         创建�?   
+emsg_create_timestamp   DATETIME(19)   NO         创建时间   
+emsg_attachment   MEDIUMTEXT(16777215)   YES         附件，多个�?�号分隔   
+emsg_itm_id   INT(10)   YES         课程id   
+序号�?55   表名：emailmsgrechistory                  
+备注：邮件发送历史表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emrh_emsg_id   INT(10)   NO   P      EMAILMESSAGE.EMSG_ID   
+emrh_status   VARCHAR(20)   NO         发�?�状�?     
+emrh_sent_datetime   DATETIME(19)   YES         发�?�时�?   
+emrh_attempted   INT(10)   NO         发�?�次�?   
+序号�?56   表名：emsgrwmsg                  
+备注：emailMessage �? webMessage的中间关联表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emsg_id   INT(10)   NO   P         
+wmsg_id   INT(10)   NO   P         
+序号�?57   表名：enrolment                  
+备注：学习资源（课程、模块�?�测验等）记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+enr_ent_id   INT(10)   NO   P         
+enr_res_id   INT(10)   NO   P         
+enr_status   VARCHAR(10)   NO            
+enr_create_timestamp   DATETIME(19)   NO            
+enr_create_usr_id   VARCHAR(50)   NO            
+序号�?58   表名：enterpriseinfoportal                  
+备注：企业门户信�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+eip_id   INT(10)   NO   P      企业ID   
+eip_code   VARCHAR(50)   NO         企业编号   
+eip_name   VARCHAR(255)   NO         企业名称   
+eip_tcr_id   INT(10)   NO         关联培训中心   
+eip_account_num   INT(10)   NO         拥有账户个数   
+eip_status   VARCHAR(10)   NO         状�??   
+eip_domain   VARCHAR(50)   YES         门户   
+eip_create_timestamp   DATETIME(19)   NO         创建时间   
+eip_create_usr_id   VARCHAR(20)   NO         创建用户   
+eip_update_timestamp   DATETIME(19)   NO         更新时间   
+eip_update_usr_id   VARCHAR(20)   NO         更新用户   
+eip_max_peak_count   INT(10)   YES            
+eip_live_max_count   INT(10)   YES            
+eip_live_mode   VARCHAR(255)   YES            
+eip_live_qcloud_secretid   VARCHAR(255)   YES            
+eip_live_qcloud_secretkey   VARCHAR(255)   YES            
+eip_live_polyv_app_id   VARCHAR(255)   YES            
+eip_live_polyv_user_id   VARCHAR(255)   YES            
+eip_live_polyv_app_secret   VARCHAR(255)   YES            
+eip_live_polyv_secret_key   VARCHAR(255)   YES            
+序号�?59   表名：entity                  
+备注：实体表, 用户，用户组关联                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ent_id   INT(10)   NO   P      ID   
+ent_type   VARCHAR(10)   NO         实体类型   
+ent_upd_date   DATETIME(19)   YES         修改时间   
+ent_syn_date   DATETIME(19)   YES         同步时间   
+ent_ste_uid   VARCHAR(255)   YES         实体标识,用户组编�?   
+ent_syn_ind   BIT(1)   NO         是否同步数据   
+ent_delete_usr_id   VARCHAR(20)   YES         删除�?   
+ent_delete_timestamp   DATETIME(19)   YES         删除时间   
+序号�?60   表名：entityrelation                  
+备注：实体与实体关系�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ern_child_ent_id   INT(10)   NO   P      子ID   
+ern_ancestor_ent_id   INT(10)   NO   P      父ID   
+ern_order   INT(10)   NO         排序(多层级时候所属层�?)   
+ern_type   VARCHAR(50)   NO         关系类型   
+ern_parent_ind   INT(10)   NO         标识是否属于�?近层�?   
+ern_syn_timestamp   DATETIME(19)   YES         同步时间   
+ern_remain_on_syn   INT(10)   NO            
+ern_create_timestamp   DATETIME(19)   NO         创建时间   
+ern_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?61   表名：entityrelationhistory                  
+备注：实体与实体关系历史记录�?,包括删除的数�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+erh_id   INT(10)   NO   P      ID   
+erh_child_ent_id   INT(10)   NO         子ID   
+erh_ancestor_ent_id   INT(10)   NO         父ID   
+erh_order   INT(10)   NO         排序(多层级时候所属层�?)   
+erh_type   VARCHAR(50)   NO         关系类型(如用户与用户�?/用户与职�?/用户组与用户�?/职位与职�? 这些关系对应不用类型)   
+erh_parent_ind   INT(10)   NO         标识是否属于�?近层�?   
+erh_start_timestamp   DATETIME(19)   NO         (上次)添加或�?�删除的日期   
+erh_end_timestamp   DATETIME(19)   NO         结束日期(�?般是当前操作时间)   
+erh_create_timestamp   DATETIME(19)   NO         创建时间   
+erh_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?62   表名：evalaccess                  
+备注：调查问卷访问用户记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+eac_id   INT(10)   NO   P      ID   
+eac_res_id   INT(10)   NO         问卷ID   
+eac_target_ent_id   INT(10)   NO         答题人员ID   
+eac_order   INT(10)   NO         序号   
+eac_create_timestamp   DATETIME(19)   NO         创建时间   
+eac_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?63   表名：evaluationmodelref                  
+备注：问卷模�? - 模块、模板�?�题目引用关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emr_id   INT(10)   NO   P         
+emr_module_id   INT(10)   NO         module表ID   
+emr_acem_id   INT(10)   NO         afterclassevaluationmodel表ID   
+emr_mes_id   INT(10)   NO         copy题目表主键ID，即moduleevaluationsubject�?   
+emr_cos_id   INT(10)   NO         course表的cos_res_id   
+序号�?64   表名：evaluationmodelrelation                  
+备注：引�? - 与题目的关系                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emrn_id   INT(10)   NO   P         
+emrn_acem_id   INT(10)   NO         模板ID，即afterclassevaluationmodel表ID   
+emrn_mes_id   INT(10)   NO         copy题目主键ID，即moduleevaluationsubject表ID   
+emrn_aces_id   INT(10)   NO         afterclassevaluationsubject表ID   
+序号�?65   表名：evaluationmodeltype                  
+备注：问卷模板类�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+emt_id   INT(10)   NO   P      ID   
+emt_title   VARCHAR(100)   NO         模板名称   
+emt_status   SMALLINT(5)   YES         模板状�??   
+序号�?66   表名：imcatalog                  
+备注：积分商城分类表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+imc_id   INT(10)   NO   P      ID   
+imc_name   VARCHAR(60)   NO         分类名称   
+imc_tcr_id   INT(10)   NO         分类�?属培训中心id   
+imc_create_ent_id   INT(10)   YES         创建�?   
+imc_createtime   DATETIME(19)   YES         创建时间   
+imc_update_ent_id   INT(10)   YES         更新�?   
+imc_updatetime   DATETIME(19)   YES         更新时间   
+序号�?67   表名：imexchangelog                  
+备注：积分商城学员兑换记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+iel_id   INT(10)   NO   P      兑换标识   
+iel_imp_id   INT(10)   NO         商品标识   
+iel_usr_ent_id   INT(10)   NO         兑换学员   
+iel_exchange   INT(10)   NO         兑换积分   
+iel_deliver   INT(10)   NO         发货状�??1-未发�?;2-已发�?;3-已收�?   
+iel_delivernum   VARCHAR(255)   YES         快�?�单�?   
+iel_delivercompany   VARCHAR(255)   YES         物流名称   
+iel_linktel   VARCHAR(255)   YES         电话   
+iel_address   VARCHAR(255)   YES         地址   
+iel_consignee   VARCHAR(255)   YES         收货�?   
+iel_deliveraddress   VARCHAR(255)   YES         实发中心   
+iel_create_ent_id   INT(10)   YES         创建�?   
+iel_createtime   DATETIME(19)   YES         创建时间   
+iel_update_ent_id   INT(10)   YES         更新�?   
+iel_updatetime   DATETIME(19)   YES         更新时间   
+序号�?68   表名：improdrelcata                  
+备注：积分商城商品与分类关系�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ipc_id   INT(10)   NO   P      ID   
+ipc_imp_id   INT(10)   NO         商品id   
+ipc_imc_id   INT(10)   NO         分类id   
+ipc_create_ent_id   INT(10)   YES         创建�?   
+ipc_createtime   DATETIME(19)   YES         创建时间   
+ipc_update_ent_id   INT(10)   YES         更新�?   
+ipc_updatetime   DATETIME(19)   YES         更新时间   
+序号�?69   表名：improduct                  
+备注：积分商城商品表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+imp_id   INT(10)   NO   P      商品标识   
+imp_name   VARCHAR(100)   NO         商品名称   
+imp_exchange   INT(10)   NO         兑换积分   
+imp_status   INT(10)   NO         商品状�??1-已发�?;0-未发�?   
+imp_recommend   INT(10)   NO         是否主推1-�?;0-�?   
+imp_total   INT UNSIGNED(10)   NO         商品数量   
+imp_totallimit   INT(10)   YES         商品数量是否无限1-有限;0-不限   
+imp_pic   VARCHAR(30)   YES         商品图片   
+imp_brief   MEDIUMTEXT(16777215)   YES         商品�?�?   
+imp_starttime   DATETIME(19)   YES         有效�?始时�?   
+imp_endtime   DATETIME(19)   YES         有效结束时间   
+imp_endtimelimit   INT(10)   YES         有效结束时间是否无限1-有限;0-不限   
+imp_uptime   DATETIME(19)   YES         上架时间   
+imp_cty_id   INT(10)   YES         积分点类型标�?   
+imp_tcr_id   INT(10)   YES   F   tctrainingcenter.tcr_id   培训中心id   
+imp_create_ent_id   INT(10)   YES         创建�?   
+imp_createtime   DATETIME(19)   YES         创建时间   
+imp_update_ent_id   INT(10)   YES         更新�?   
+imp_updatetime   DATETIME(19)   YES         更新时间   
+序号�?70   表名：imslog                  
+备注：导入日�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ilg_id   INT(10)   NO   P      ID   
+ilg_method   VARCHAR(20)   NO         执行方法   
+ilg_type   VARCHAR(20)   NO         类型   
+ilg_process   VARCHAR(20)   NO         进度   
+ilg_filename   VARCHAR(100)   YES         文件�?   
+ilg_desc   MEDIUMTEXT(16777215)   YES         描述   
+ilg_create_usr_id   VARCHAR(20)   YES         创建�?   
+ilg_create_timestamp   DATETIME(19)   NO         创建时间   
+ilg_target_id   VARCHAR(50)   YES         导入的目标对�?   
+ilg_tcr_id   INT(10)   YES         培训中心ID   
+序号�?71   表名：instructorcomment                  
+备注：讲师评分表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itc_id   INT(10)   NO   P      ID   
+itc_itm_id   INT(10)   NO         课程id   
+itc_ent_id   INT(10)   NO         学员ID   
+itc_iti_ent_id   INT(10)   NO         讲师ID   
+itc_style_score   DOUBLE(22)   YES         授课风格   
+itc_quality_score   DOUBLE(22)   YES         教学质量   
+itc_structure_score   DOUBLE(22)   YES         内容结构   
+itc_interaction_score   DOUBLE(22)   YES         交流互动   
+itc_score   DOUBLE(22)   YES         平均�?   
+itc_comment   VARCHAR(255)   YES         评语   
+itc_create_datetime   DATETIME(19)   YES         创建时间   
+itc_create_user_id   VARCHAR(50)   YES         创建�?   
+itc_update_datetime   DATETIME(19)   YES         修改时间   
+itc_update_user_id   VARCHAR(50)   YES         修改�?   
+序号�?72   表名：instructorcos                  
+备注：讲师和课程关联�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ics_id   INT(10)   NO   P      ID   
+ics_iti_ent_id   INT(10)   NO         讲师ID   
+ics_title   VARCHAR(255)   YES         课程名称   
+ics_fee   DOUBLE(22)   YES         课程费用   
+ics_hours   DOUBLE(22)   YES         课程时长   
+ics_target   VARCHAR(255)   YES         课程目标对象   
+ics_content   VARCHAR(255)   YES         课程内容   
+序号�?73   表名：instructorinf                  
+备注：讲师信息表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+iti_ent_id   INT(10)   NO   P      内部讲师则关联REGUSER.USR_ENT_ID   
+iti_name   VARCHAR(255)   YES         讲师名称   
+iti_gender   VARCHAR(20)   YES         性别   
+iti_bday   DATETIME(19)   YES         出生日期   
+iti_mobile   VARCHAR(255)   YES         手机号码   
+iti_email   VARCHAR(255)   YES         电子邮箱   
+iti_img   VARCHAR(255)   YES         讲师图片   
+iti_introduction   MEDIUMTEXT(16777215)   YES         讲师�?�?   
+iti_level   VARCHAR(20)   YES         讲师等级   
+iti_cos_type   VARCHAR(20)   YES         授课类别   
+iti_main_course   MEDIUMTEXT(16777215)   YES         主讲课程   
+iti_type   VARCHAR(255)   YES         讲师类型-主职，兼�?   
+iti_property   VARCHAR(255)   YES            
+iti_highest_educational   VARCHAR(255)   YES            
+iti_graduate_institutions   VARCHAR(255)   YES            
+iti_address   MEDIUMTEXT(16777215)   YES         讲师地址   
+iti_work_experience   TEXT(65535)   YES            
+iti_education_experience   TEXT(65535)   YES            
+iti_training_experience   TEXT(65535)   YES            
+iti_expertise_areas   MEDIUMTEXT(16777215)   YES         擅长领域   
+iti_good_industry   MEDIUMTEXT(16777215)   YES         擅长行业   
+iti_training_company   VARCHAR(255)   YES         培训公司   
+iti_training_contacts   VARCHAR(255)   YES         培训联系方式   
+iti_training_tel   VARCHAR(255)   YES         培训联系方式   
+iti_training_email   VARCHAR(255)   YES         邮箱   
+iti_training_address   VARCHAR(255)   YES         地址   
+iti_status   VARCHAR(20)   YES            
+iti_type_mark   VARCHAR(20)   YES            
+iti_score   DOUBLE(22)   YES         讲师分数   
+iti_create_datetime   DATETIME(19)   YES         创建时间   
+iti_create_user_id   VARCHAR(50)   YES         创建�?   
+iti_update_datetime   DATETIME(19)   YES         修改时间   
+iti_update_user_id   VARCHAR(50)   YES         修改�?   
+iti_tcr_id   INT(10)   YES         培训中心   
+iti_recommend   INT(10)   YES         推荐   
+序号�?74   表名：integcompletecondition                  
+备注：项目式课程必修选修�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+icd_id   INT(10)   NO   P      ID   
+icd_icc_id   INT(10)   NO         完成条件id INTEGCOURSECRITERIA.ICC_ID   
+icd_completed_item_count   INT(10)   NO         完成课程总数   
+icd_type   VARCHAR(20)   NO         类型：必修，选修   
+icd_create_timestamp   DATETIME(19)   NO         创建时间   
+icd_create_usr_id   VARCHAR(20)   NO         创建�?   
+icd_update_timestamp   DATETIME(19)   NO         修改时间   
+icd_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?75   表名：integcoursecriteria                  
+备注：项目式培训中每条课程准则的完成条件                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+icc_id   INT(10)   NO   P         
+icc_itm_id   INT(10)   NO         课程ID   
+icc_completed_elective_count   INT(10)   NO         完成的必修条件数�?   
+icc_create_timestamp   DATETIME(19)   NO         创建时间   
+icc_create_usr_id   VARCHAR(20)   NO         创建�?   
+icc_update_timestamp   DATETIME(19)   NO         修改时间   
+icc_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?76   表名：integrelationitem                  
+备注：项目式培训与课程的关系�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+iri_icd_id   INT(10)   NO   P      INTEGCOMPLETECONDITION.ICD_ID   
+iri_relative_itm_id   INT(10)   NO   P      AEITEM.ITM_ID   
+序号�?77   表名：interaction                  
+备注：问题答案记录表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+int_res_id   INT(10)   NO   P      资源ID QUESTION.QUE_RES_ID   
+int_order   SMALLINT(5)   NO   P      排序   
+int_label   VARCHAR(30)   YES            
+int_xml_outcome   LONGTEXT(2147483647)   YES         答案集合以xml存储   
+int_xml_explain   LONGTEXT(2147483647)   YES         答案引用以xml存储   
+int_res_id_explain   INT(10)   YES         说明 RESOURCES.RES_ID   
+int_res_id_refer   INT(10)   YES         引用 RESOURCES.RES_ID   
+序号�?78   表名：itemtargetlrndetail                  
+备注：课程目标学员明细表; 为了提目标学员查询的性能,每次更新目标学员规则�?,都会把该课程下的�?有目录学员预加载到该表中                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+itd_itm_id   INT(10)   NO   P      课程ID   
+itd_usr_ent_id   INT(10)   NO   P      用户ID   
+itd_group_ind   INT(10)   NO         用户�?   
+itd_grade_ind   INT(10)   NO         职级   
+itd_position_ind   INT(10)   NO         岗位   
+itd_compulsory_ind   INT(10)   NO         必修   
+itd_fromprofession   INT(10)   YES         规则来源于职级地�?    0�?1�?2是并且课程中设置职级关键维度   
+itd_fromposition   INT(10)   YES         规则来源于岗位地�?   0�?1�?2是并且课程中设置岗位关键维度   
+序号�?79   表名：kb_attachment                  
+备注：知识中�? - 附件                   
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kba_id   INT(10)   NO   P         
+kba_filename   VARCHAR(255)   YES         文件�?   
+kba_file   VARCHAR(255)   YES         文件地址   
+kba_remark   VARCHAR(255)   YES         文件说明   
+kba_create_datetime   DATETIME(19)   YES         创建时间   
+kba_create_user_id   VARCHAR(50)   YES         创建�?   
+kba_update_datetime   DATETIME(19)   YES         修改时间   
+kba_update_user_id   VARCHAR(50)   YES         修改�?   
+kba_url   VARCHAR(255)   YES         访问地址   
+序号�?80   表名：kb_catalog                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kbc_id   INT(10)   NO   P      ID   
+kbc_title   VARCHAR(255)   YES         标题   
+kbc_desc   VARCHAR(255)   YES         描述   
+kbc_status   VARCHAR(255)   YES         状�??   
+kbc_tcr_id   INT(10)   YES         �?属培训中�?   
+kbc_create_datetime   DATETIME(19)   YES         创建时间   
+kbc_create_user_id   VARCHAR(50)   YES         创建�?   
+kbc_update_datetime   DATETIME(19)   YES         修改时间   
+kbc_update_user_id   VARCHAR(50)   YES         修改�?   
+kbc_type   VARCHAR(255)   YES         目录类型;  TEMP  未分�?   
+序号�?81   表名：kb_item                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kbi_id   INT(10)   NO   P      ID   
+kbi_title   VARCHAR(255)   YES         标题   
+kbi_image   VARCHAR(255)   YES         封面�?   
+kbi_desc   VARCHAR(255)   YES         描述   
+kbi_content   LONGTEXT(2147483647)   YES         内容   
+kbi_type   VARCHAR(255)   YES         类型   
+kbi_status   VARCHAR(255)   YES         状�??   
+kbi_app_status   VARCHAR(255)   YES         审批状�??   
+kbi_approve_datetime   DATETIME(19)   YES         审批时间   
+kbi_approve_user_id   VARCHAR(50)   YES         审批�?   
+kbi_publish_datetime   DATETIME(19)   YES         发布时间   
+kbi_publish_user_id   VARCHAR(50)   YES         发布�?   
+kbi_create_datetime   DATETIME(19)   YES         创建时间   
+kbi_create_user_id   VARCHAR(50)   YES         创建�?   
+kbi_update_datetime   DATETIME(19)   YES         修改时间   
+kbi_update_user_id   VARCHAR(50)   YES         修改�?   
+kbi_access_count   INT(10)   YES         浏览�?   
+kbi_download   VARCHAR(50)   YES         是否允许下载: * ALLOW  允许; * INTERDICT 禁止   
+kbi_download_count   INT(10)   YES         下载次数   
+kbi_online   VARCHAR(20)   YES         是否是在线视频：* ONLINE 在线视频   
+kbi_filetype   VARCHAR(10)   YES         文件类型   
+序号�?82   表名：kb_item_attachment                  
+备注：知识中�? - 知识和附件关�?                   
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kia_kbi_id   INT(10)   NO   P         
+kia_kba_id   INT(10)   NO   P         
+kia_create_datetime   DATETIME(19)   YES         创建时间   
+kia_create_user_id   VARCHAR(50)   YES         创建�?   
+序号�?83   表名：kb_item_cat                  
+备注：知识中�? - 知识和目录关�?                   
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kic_kbi_id   INT(10)   NO   P      知识id   
+kic_kbc_id   INT(10)   NO   P      附件ID   
+kic_create_datetime   DATETIME(19)   YES         创建时间   
+kic_create_user_id   VARCHAR(50)   YES         创建�?   
+序号�?84   表名：kb_item_tag                  
+备注：知识中�? - 知识和标签关�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kit_kbi_id   INT(10)   NO   P      知识ID   
+kit_tag_id   INT(10)   NO   P      标签ID   
+kit_create_datetime   DATETIME(19)   YES         创建时间   
+kit_create_user_id   VARCHAR(50)   YES         创建�?   
+序号�?85   表名：kb_item_view                  
+备注�? 知识中心 - 知识浏览�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kiv_usr_ent_id   INT(10)   NO   P      知识ID   
+kiv_kbi_id   INT(10)   NO   P      标签ID   
+kiv_create_datetime   DATETIME(19)   YES         创建时间   
+kiv_update_datetime   DATETIME(19)   YES         创建�?   
+序号�?86   表名：knowanswer                  
+备注：知识中�? - 问答                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ans_id   INT(10)   NO   P         
+ans_que_id   INT(10)   NO         问题id   
+ans_content   LONGTEXT(2147483647)   NO         问答内容   
+ans_refer_content   TEXT(65535)   YES         引用内容   
+ans_right_ind   INT(10)   NO         是否正确答案   
+ans_vote_total   INT(10)   YES            
+ans_vote_for   INT(10)   YES            
+ans_vote_down   INT(10)   YES            
+ans_temp_vote_total   INT(10)   YES            
+ans_temp_vote_for   INT(10)   YES            
+ans_temp_vote_for_down_diff   INT(10)   YES            
+ans_status   VARCHAR(20)   NO            
+ans_create_ent_id   INT(10)   NO            
+ans_create_timestamp   DATETIME(19)   NO            
+ans_update_ent_id   INT(10)   NO            
+ans_update_timestamp   DATETIME(19)   NO            
+ans_content_search   LONGTEXT(2147483647)   NO            
+序号�?87   表名：knowcatalog                  
+备注�? 知识中心 - 目录                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kca_id   INT(10)   NO   P         
+kca_tcr_id   INT(10)   NO            
+kca_code   VARCHAR(50)   YES            
+kca_title   VARCHAR(255)   NO            
+kca_type   VARCHAR(50)   NO            
+kca_public_ind   INT(10)   NO            
+kca_que_count   INT(10)   YES            
+kca_create_usr_id   VARCHAR(20)   NO            
+kca_create_timestamp   DATETIME(19)   NO            
+kca_update_usr_id   VARCHAR(20)   NO            
+kca_update_timestamp   DATETIME(19)   NO            
+序号�?88   表名：knowcatalogrelation                  
+备注：知识中�? - 目录关系�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kcr_child_kca_id   INT(10)   NO   P         
+kcr_ancestor_kca_id   INT(10)   NO   P         
+kcr_type   VARCHAR(50)   NO   P         
+kcr_order   INT(10)   NO            
+kcr_parent_ind   INT(10)   NO            
+kcr_syn_timestamp   DATETIME(19)   YES            
+kcr_remain_on_syn   INT(10)   YES            
+kcr_create_usr_id   VARCHAR(20)   NO            
+kcr_create_timestamp   DATETIME(19)   NO            
+序号�?89   表名：knowquestion                  
+备注：知识中�? - 问题信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+que_id   INT(10)   NO   P         
+que_title   VARCHAR(255)   NO            
+que_answered_timestamp   DATETIME(19)   YES            
+que_popular_ind   INT(10)   NO            
+que_popular_timestamp   DATETIME(19)   YES            
+que_reward_credits   INT(10)   NO            
+que_status   VARCHAR(20)   NO            
+que_create_ent_id   INT(10)   NO            
+que_create_timestamp   DATETIME(19)   NO            
+que_update_ent_id   INT(10)   NO            
+que_update_timestamp   DATETIME(19)   NO            
+que_content   TEXT(65535)   YES            
+que_type   VARCHAR(20)   YES            
+que_bounty   DOUBLE(22)   YES            
+que_ask_ent_ids   TEXT(65535)   YES            
+序号�?90   表名：knowvotedetail                  
+备注：知识中�?-问题答案信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+kvd_que_id   INT(10)   NO   P      问题id   
+kvd_ans_id   INT(10)   NO   P      答案id   
+kvd_ent_id   INT(10)   NO   P      人员id   
+kvd_create_usr_id   VARCHAR(20)   NO            
+kvd_create_timestamp   DATETIME(19)   NO            
+序号�?91   表名：learningsituation                  
+备注：学习概�?; 每天会有线程更新这个表的统计数据                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ls_id   INT(10)   NO   P         
+ls_ent_id   INT(10)   NO         学习概况�?   
+ls_learn_duration   INT(10)   NO         学习总时�?   
+ls_learn_credit   DECIMAL(14)   YES         总学�?   
+ls_total_integral   DECIMAL(14)   YES         总积�?   
+ls_total_courses   INT(10)   NO         课程总数   
+ls_course_completed_num   INT(10)   NO         已完成课程�?�数   
+ls_course_fail_num   INT(10)   NO         未完成课程�?�数   
+ls_course_inprogress_num   INT(10)   NO         进行中课程�?�数   
+ls_course_pending_num   INT(10)   NO         审批中课程�?�数   
+ls_total_exams   INT(10)   NO         考试总数   
+ls_exam_completed_num   INT(10)   NO         已完成�?�试总数   
+ls_exam_fail_num   INT(10)   NO         未完成�?�试总数   
+ls_exam_inprogress_num   INT(10)   NO         进行中�?�试总数   
+ls_exam_pending_num   INT(10)   NO         审批中�?�试总数   
+ls_fans_num   INT(10)   NO         粉丝   
+ls_attention_num   INT(10)   NO         关注   
+ls_praised_num   INT(10)   NO         被赞   
+ls_praise_others_num   INT(10)   NO         赞他�?   
+ls_collect_num   INT(10)   NO         收藏   
+ls_share_num   INT(10)   NO         分享   
+ls_create_group_num   INT(10)   NO         创建群组   
+ls_join_group_num   INT(10)   NO         参与群组   
+ls_group_speech_num   INT(10)   NO         群组发言   
+ls_question_num   INT(10)   NO         提问�?   
+ls_answer_num   INT(10)   NO         回答�?   
+ls_update_time   DATETIME(19)   NO         更新时间   
+ls_share_count   INT(10)   YES         我的分享（分享知识）   
+ls_access_count   INT(10)   YES         我的浏览（浏览知识）   
+is_first_course_date   TIMESTAMP(19)   NO            
+is_first_praised_usr   VARCHAR(255)   YES            
+is_first_praised_date   TIMESTAMP(19)   NO            
+is_first_fans_usr   VARCHAR(255)   YES            
+is_first_fans_date   TIMESTAMP(19)   NO            
+is_first_share_date   TIMESTAMP(19)   NO            
+is_first_que_date   TIMESTAMP(19)   NO            
+is_first_helper_usr   VARCHAR(255)   YES            
+is_signup_date   TIMESTAMP(19)   NO            
+序号�?92   表名：liveitem                  
+备注�? 直播                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+lv_id   INT(10)   NO   P      ID   
+lv_title   VARCHAR(255)   YES         标题   
+lv_create_datetime   DATETIME(19)   YES         创建时间   
+lv_start_datetime   DATETIME(19)   YES         �?始时�?   
+lv_end_datetime   DATETIME(19)   YES         结束时间   
+lv_create_usr_id   VARCHAR(20)   YES         创建�?   
+lv_upd_datetime   DATETIME(19)   YES         更新时间   
+lv_upd_usr_id   VARCHAR(20)   YES         更新人ID   
+lv_url   VARCHAR(500)   YES         直播室播放地�?   
+lv_desc   VARCHAR(1000)   YES         �?�?   
+lv_pwd   CHAR(20)   YES         直播密码   
+lv_webinar_id   INT(10)   YES         活动ID   
+lv_record_id   INT(10)   YES         回放ID   
+lv_image   VARCHAR(100)   YES         图片   
+lv_status   VARCHAR(20)   YES         状�??   
+lv_real_start_datetime   DATETIME(19)   YES         真实�?播时�?   
+lv_need_pwd   INT(10)   YES         是否�?要密�?   
+lv_tcr_id   INT(10)   YES         培训中心id   
+lv_people_num   INT(10)   YES         限制人数   
+lv_type   INT(10)   YES         状�?�（2-预告 1-直播�? 3-已结束）   
+lv_had_live   INT(10)   YES         是否直播�?   
+lv_mode_type   VARCHAR(255)   YES         供应商类�? 微吼：VHALL 腾讯云：QCLOUD 保利威视：POLYV   
+lv_upstream_address   VARCHAR(255)   YES         推流地址   
+lv_hls_downstream_address   VARCHAR(255)   YES         hls观看地址   
+lv_rtmp_downstream_address   VARCHAR(255)   YES         rtmp观看地址   
+lv_flv_downstream_address   VARCHAR(255)   YES         flv观看地址   
+lv_channel_id   VARCHAR(255)   YES         频道�?   
+lv_student_token   VARCHAR(255)   YES         Web 端学员口�?   
+lv_teacher_token   VARCHAR(255)   YES         老师口令   
+lv_student_client_token   VARCHAR(255)   YES         学生客户端口�?   
+lv_teacher_join_url   VARCHAR(255)   YES         老师和助教加入URL   
+lv_student_join_url   VARCHAR(255)   YES         学员加入URL   
+lv_gensee_online_user   INT(10)   YES         保存展示互动在线人数   
+lv_real_end_datetime   DATETIME(19)   YES         真正的结束时�?   
+lv_gensee_record_url   VARCHAR(255)   YES         展示互动回放地址   
+lv_record_vid   VARCHAR(255)   YES         保利威视转存后的视频id   
+lv_secret_key   VARCHAR(255)   YES         保利威视观看直播外部授权的secretKey   
+序号�?93   表名：liverecords                  
+备注�? 观看直播人员                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+lr_usr_id   VARCHAR(20)   YES         观看人ID   
+lr_live_id   INT(10)   YES         记录创建时间   
+lr_create_time   DATETIME(19)   YES         直播ID   
+lr_status   INT(10)   YES         状�??   
+id   BIGINT(19)   NO   P      ID   
+序号�?94   表名：measurementevaluation                  
+备注：计分项目学习记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mtv_id   INT(10)   NO   P      主键id   
+mtv_cos_id   INT(10)   NO         课程cosId   
+mtv_ent_id   INT(10)   NO         学员entId   
+mtv_cmt_id   INT(10)   NO         计分项目id   
+mtv_status   VARCHAR(10)   YES         学习状�??   
+mtv_score   DECIMAL(20)   YES         分数   
+mtv_create_timestamp   DATETIME(19)   NO         创建时间   
+mtv_create_usr_id   VARCHAR(50)   NO         创建�?   
+mtv_update_timestamp   DATETIME(19)   NO         修改时间   
+mtv_update_usr_id   VARCHAR(50)   NO         修改�?   
+mtv_tkh_id   INT(10)   NO         学员tkhId   
+序号�?95   表名：message                  
+备注：�?�告(公告)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+msg_id   INT(10)   NO   P      ID   
+msg_usr_id   VARCHAR(20)   NO         创建�?   
+msg_type   VARCHAR(5)   NO         公告类型   
+msg_title   VARCHAR(255)   NO         名称   
+msg_body   LONGTEXT(2147483647)   NO         公告内容   
+msg_begin_date   DATETIME(19)   NO         公告�?始日�?   
+msg_end_date   DATETIME(19)   NO         公告结束日期   
+msg_status   VARCHAR(15)   NO         发布状�??   
+msg_res_id   INT(10)   YES         资源ID(如果为课程公告，课程对应的res_id)   
+msg_root_ent_id   INT(10)   YES         顶级用户组ID   
+msg_upd_date   DATETIME(19)   NO         修改时间   
+msg_level   VARCHAR(50)   YES         消息等级   
+msg_tcr_id   INT(10)   YES         培训中心修改�?   
+msg_icon   VARCHAR(50)   YES         公告图标文件�?   
+msg_mobile_ind   INT(10)   YES         是否发布到移动端 0：pc�? 1：移动端   
+msg_receipt   INT(10)   YES         是否�?要回�? 0：否 1 ：是   
+序号�?96   表名：messageparamname                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mpn_id   INT(10)   NO   P         
+mpn_mtp_id   INT(10)   NO         模板类型   
+mpn_name   VARCHAR(255)   NO         参数�?   
+mpn_name_desc   VARCHAR(255)   NO         参数名描�?   
+序号�?97   表名：messagetemplate                  
+备注：邮件模�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mtp_id   INT(10)   NO   P      ID   
+mtp_type   VARCHAR(255)   NO         模板类型   
+mtp_subject   VARCHAR(255)   NO         邮件默认主题   
+mtp_content   LONGTEXT(2147483647)   NO         邮件内容   
+mtp_content_email_link   VARCHAR(255)   YES         内容url(邮件)   
+mtp_content_pc_link   VARCHAR(255)   YES         内容url(站内信电�?)   
+mtp_content_mobile_link   VARCHAR(255)   YES         内容url(站内信手�?)   
+mtp_remark_label   VARCHAR(255)   YES         备注Label   
+mtp_web_message_ind   BIT(1)   NO         是否同时发站内信   
+mtp_active_ind   BIT(1)   NO         是否启用   
+mtp_tcr_id   INT(10)   NO         关联培训中心ID;增训中心不独立时,关联根培训中�?;培训中心独立�?,关系二级培训中心   
+mtp_update_ent_id   INT(10)   NO         修改�?   
+mtp_update_timestamp   DATETIME(19)   NO         修改时间   
+mtp_header_img   VARCHAR(200)   YES         头部图片   
+mtp_footer_img   VARCHAR(200)   YES         底部图片   
+序号�?98   表名：module                  
+备注：课程学习模块记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mod_res_id   INT(10)   NO   P      模块资源ID   
+mod_type   VARCHAR(10)   NO         模块类型   
+mod_max_score   DECIMAL(20)   YES         �?大分�?   
+mod_pass_score   DECIMAL(20)   YES         通过分数   
+mod_instruct   TEXT(65535)   YES            
+mod_max_attempt   INT(10)   YES            
+mod_max_usr_attempt   INT(10)   YES         允许参加的最大次�?   
+mod_score_ind   BIT(1)   NO            
+mod_score_reset   INT(10)   YES            
+mod_logic   VARCHAR(10)   YES            
+mod_eff_start_datetime   DATETIME(19)   YES         模块学习�?始时�?   
+mod_eff_end_datetime   DATETIME(19)   YES         模块学习结束时间   
+mod_usr_id_instructor   VARCHAR(20)   YES            
+mod_core_vendor   LONGTEXT(2147483647)   YES            
+mod_password   VARCHAR(255)   YES            
+mod_import_xml   LONGTEXT(2147483647)   YES            
+mod_import_datetime   DATETIME(19)   YES            
+mod_time_limit_action   VARCHAR(255)   YES            
+mod_web_launch   LONGTEXT(2147483647)   YES            
+mod_vendor   VARCHAR(255)   YES            
+mod_aicc_version   VARCHAR(50)   YES         AICC 课件版本   
+mod_has_rate_q   BIT(1)   NO            
+mod_is_public   BIT(1)   NO         是否为公共模�?   
+mod_public_need_enrol   BIT(1)   NO            
+mod_mod_id_root   INT(10)   YES         父模块ID   
+mod_show_answer_ind   INT(10)   YES         每次参加测验后向学员显示试题和答�?   
+mod_sub_after_passed_ind   INT(10)   YES         每次参加测验合格后向学员显示试题和答�?   
+mod_mod_res_id_parent   INT(10)   YES            
+mod_auto_save_ind   INT(10)   YES            
+mod_sgp_ind   INT(10)   YES            
+mod_managed_ind   BIT(1)   NO            
+mod_started_ind   BIT(1)   NO            
+mod_tcr_id   INT(10)   YES         培训中心ID   
+mod_show_A_A_passed_ind   INT(10)   YES         及格后向学员显示题目答案   
+mod_required_time   INT(10)   YES         学员考试成绩合格才显示题目和答案   
+mod_download_ind   INT(10)   NO         是否充许下载: 0 为禁�?  1 为允�?   
+mod_mobile_ind   INT(10)   NO         是否发布到移动端   
+mod_test_style   VARCHAR(10)   YES         试卷显示方式增加"�?屏多�?"   
+mod_copy_ind   INT(10)   NO         限制"视频点播"模块是否允许下载属�?�是否可以修�?:,   
+mod_max_usr_open   INT(10)   YES         �?大打�?次数   
+序号�?99   表名：moduleevaluation                  
+备注：模块学习记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mov_cos_id   INT(10)   YES         资源ID(课程对应的res_id)   
+mov_ent_id   INT(10)   NO   P      用户ID   
+mov_mod_id   INT(10)   NO   P      模块ID(如测验模块ID)   
+mov_last_acc_datetime   DATETIME(19)   NO         �?后一次访问时�?   
+mov_ele_loc   VARCHAR(255)   YES            
+mov_total_time   DOUBLE(22)   NO         学习总时�?   
+mov_total_attempt   INT(10)   YES         学习总尝试次�?   
+mov_status   VARCHAR(10)   NO         学习状�??   
+mov_score   DECIMAL(20)   YES         获得的分�?   
+mov_max_score   DECIMAL(20)   YES         �?大分�?   
+mov_min_score   DECIMAL(20)   YES         �?小分�?   
+mov_core_lesson   LONGTEXT(2147483647)   YES         章节信息(课件属�??)   
+mov_status_flag   VARCHAR(10)   YES            
+mov_aicc_score   VARCHAR(255)   YES         章节分数(课件属�??)   
+mov_credit   VARCHAR(1)   YES         课件章节状�??   
+mov_data_xml   LONGTEXT(2147483647)   YES            
+mov_create_usr_id   VARCHAR(20)   YES         创建�?   
+mov_create_timestamp   DATETIME(19)   YES         创建时间   
+mov_update_usr_id   VARCHAR(20)   YES         修改�?   
+mov_update_timestamp   DATETIME(19)   YES         修改时间   
+mov_tkh_id   INT(10)   NO   P      学习跟踪记录ID   
+mov_not_mark_ind   INT(10)   YES         该记录是否mark�?(mark功能是独立计算学员学习状�?)   
+mov_open_times   INT(10)   YES         打开次数   
+序号�?100   表名：moduleevaluationanswer                  
+备注：课后评估问�?-copy答案�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mea_id   INT(10)   NO   P         
+mea_title   VARCHAR(250)   YES            
+mea_score   FLOAT(12)   NO            
+mea_index   SMALLINT(5)   NO            
+mea_mes_id   INT(10)   NO            
+序号�?101   表名：moduleevaluationhistory                  
+备注：模块学习历史记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mvh_ent_id   INT(10)   NO         用户ID   
+mvh_mod_id   INT(10)   NO         模块ID   
+mvh_last_acc_datetime   DATETIME(19)   NO         �?后一次访问时�?   
+mvh_tkh_id   INT(10)   NO         学习跟踪记录ID   
+mvh_ele_loc   VARCHAR(255)   YES         上一次学习记录点   
+mvh_total_attempt   INT(10)   NO         学习总尝试次�?   
+mvh_total_time   DOUBLE(22)   NO         学习总时�?   
+mvh_status   VARCHAR(10)   YES         学习状�??   
+mvh_score   DECIMAL(20)   YES         分数   
+mvh_create_usr_id   VARCHAR(20)   NO         创建�?   
+mvh_create_timestamp   DATETIME(19)   NO         创建时间   
+mvh_id   INT(10)   NO   P      PK   
+序号�?102   表名：moduleevaluationsubject                  
+备注：课后评估问�?-copy题目�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mes_id   INT(10)   NO   P         
+mes_title   VARCHAR(5120)   NO            
+mes_type   SMALLINT(5)   NO            
+mes_category   SMALLINT(5)   NO            
+mes_status   SMALLINT(5)   NO            
+mes_index   SMALLINT(5)   NO            
+mes_create_time   TIMESTAMP(19)   NO            
+mes_update_time   TIMESTAMP(19)   YES            
+mes_create_user   INT(10)   NO            
+mes_update_user   INT(10)   YES            
+mes_acem_id   INT(10)   NO            
+mes_source_id   INT(10)   NO            
+序号�?103   表名：modulespec                  
+备注�? 动�?��?�试抽题条件                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+msp_res_id   INT(10)   NO      RESOURCES.RES_ID   试卷模块ID   
+msp_obj_id   INT(10)   NO      OBJECTIVE.OBJ_ID   资料目录ID   
+msp_type   VARCHAR(50)   YES         题目类型   
+msp_score   DECIMAL(4)   YES         每道题的分数   
+msp_difficulty   SMALLINT(5)   YES         难度   
+msp_privilege   VARCHAR(50)   YES            
+msp_duration   DOUBLE(22)   YES            
+msp_qcount   INT(10)   YES         题目总数   
+msp_algorithm   INT(10)   YES            
+msp_id   INT(10)   NO   P         
+msp_update_datetime   TIMESTAMP(19)   YES            
+序号�?104   表名：moduletempfile                  
+备注：动态的附件                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mtf_id   INT(10)   NO   P      ID   
+mtf_target_id   INT(10)   YES         动�?�ID   
+mtf_module   VARCHAR(32)   YES         �?属模�?   
+mtf_usr_id   INT(10)   NO         用户的ID   
+mtf_file_type   VARCHAR(32)   YES         文件类型   
+mtf_file_name   VARCHAR(255)   YES         原始文件�?   
+mtf_file_rename   VARCHAR(255)   YES         保存中系统中的文件名   
+mtf_file_size   BIGINT(19)   YES         文件大小   
+mtf_create_time   DATETIME(19)   YES         创建时间   
+mtf_url   LONGTEXT(2147483647)   YES         链接url   
+mtf_type   VARCHAR(32)   YES         附件类型   
+序号�?105   表名：moduletrainingcenter                  
+备注：公共调查问卷与培训中心的关�?,即公共调查问卷关联了哪个培训中心                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+mtc_id   INT(10)   NO   P   MODULE.MOD_RES_ID   公共调查问卷对应的Module id   
+mtc_mod_id   INT(10)   NO         
+mtc_tcr_id   INT(10)   NO      TCTRAININGCENTER.TCR_ID   问卷�?属培训中�?   
+mtc_create_timestamp   DATETIME(19)   NO            
+mtc_create_usr_id   VARCHAR(20)   NO         
+MTC_MOBILE_IND   INT(10)   NO         是不发布到移动端:�?0 pc�? ;1 移动�?   
+序号�?106   表名：objectactionlog                  
+备注：重要对像操作日志表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+object_id   INT(10)   NO   P      操作对象的ID   
+object_code   VARCHAR(255)   YES         操作对象的编�?   
+object_title   VARCHAR(255)   YES         操作对象的名�?   
+object_type   VARCHAR(50)   NO         操作对象的类�?(usr: 用户 ugr:用户�? upt:岗位 ugr:职级 cos:课程 class:班级  cc:结训条件
+credits: 积分项目 kb: 知识 el: 公共调查问卷 vt: 投票 an: 公告  info: 资讯�?   
+object_action   VARCHAR(50)   NO         操作{Add:添加 Upd:修改 Active:�?�? Del:删除 Upd_pwd:修改密码 Pub:发布 Cancle_pub：取消发�?
+Appr:审批 Cancel_appr:取消审批}   
+object_action_type   VARCHAR(50)   NO         操作形式
+{web:页面操作 batch:批量修改 Import:导入 }   
+object_action_time   DATETIME(19)   NO         操作时间   
+object_opt_user_id   INT(10)   NO         操作者ID   
+object_opt_user_login_time   DATETIME(19)   YES            
+object_opt_user_login_ip   VARCHAR(100)   YES            
+object_args   TEXT(65535)   YES            
+序号�?107   表名：objective                  
+备注：资源对�?(存放资源目录文件�?/AICC课件的目�?)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+obj_id   INT(10)   NO   P         
+obj_syl_id   INT(10)   YES      SYLLABUS.SYL_ID      
+obj_type   VARCHAR(20)   YES         类型   
+obj_desc   VARCHAR(255)   YES         描述   
+obj_obj_id_parent   INT(10)   YES      OBJECTIVE.OBJ_ID   父目录ID   
+obj_title   VARCHAR(255)   YES         目录名称   
+obj_developer_id   VARCHAR(255)   YES            
+obj_import_xml   LONGTEXT(2147483647)   YES            
+obj_ancester   VARCHAR(255)   YES         管理�?   
+obj_status   VARCHAR(20)   YES         状�??   
+obj_tcr_id   INT(10)   YES      TCTRAININGCENTER.TCR_ID   培训中心   
+obj_share_ind   INT(10)   YES            
+obj_create_time   DATETIME(19)   YES            
+obj_update_time   DATETIME(19)   YES            
+序号�?108   表名：objectiveaccess                  
+备注：资源目录访问权限控制关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+oac_obj_id   INT(10)   NO   P   OBJECTIVE.OBJ_ID   对象资源目录ID   
+oac_access_type   VARCHAR(20)   NO   P      类型(设置可读/可写/�?有�?�的人员)   
+oac_ent_id   INT(10)   NO   P   ENTITY.ENT_ID   用户ID   
+序号�?109   表名：profession                  
+备注：发展序�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+pfs_id   INT(10)   NO   P         
+pfs_title   VARCHAR(50)   NO         标题   
+pfs_create_time   DATETIME(19)   YES            
+pfs_create_usr_id   INT(10)   YES            
+pfs_update_time   DATETIME(19)   YES            
+pfs_update_usr_id   INT(10)   YES            
+pfs_status   INT(10)   YES            
+pfs_tcr_id   INT(10)   YES            
+pfs_template   INT(10)   YES            
+序号�?110   表名：professionitem                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+psi_id   INT(10)   NO   P         
+psi_pfs_id   INT(10)   YES            
+psi_ugr_id   TEXT(65535)   YES            
+psi_itm   TEXT(65535)   YES            
+序号�?111   表名：professionlrnitem                  
+备注：发展序列与课程关系                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+psi_id   INT(10)   NO   P         
+psi_pfs_id   INT(10)   YES         发展序列   
+psi_ugr_id   TEXT(65535)   YES         岗位ID   
+psi_itm_id   TEXT(65535)   YES         课程ID   
+序号�?112   表名：progress                  
+备注：学习进�?(过程)记录�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+pgr_usr_id   VARCHAR(20)   NO   P   REGUSER.USR_ID   用户ID(字符串形式slu+ent_id)   
+pgr_res_id   INT(10)   NO   P   RESOURCES.RES_ID   资源表ID   
+pgr_attempt_nbr   INT(10)   NO   P      提交次数(当前第几次提�?)   
+pgr_score   DECIMAL(20)   YES         分数   
+pgr_grade   VARCHAR(10)   YES         等级   
+pgr_max_score   DECIMAL(20)   YES         �?大分�?   
+pgr_rank_bil   VARCHAR(50)   YES            
+pgr_schedule_datetime   DATETIME(19)   YES            
+pgr_start_datetime   DATETIME(19)   YES         �?始时�?   
+pgr_complete_datetime   DATETIME(19)   YES         提交时间   
+pgr_last_acc_datetime   DATETIME(19)   YES         �?后一次访问时�?   
+pgr_status   VARCHAR(10)   NO         状�??   
+pgr_tkh_id   INT(10)   NO   P      学习记录ID   
+pgr_completion_status   VARCHAR(10)   YES         完成状�??   
+序号�?113   表名：progressattachment                  
+备注：学习进程提交的附件答案                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+pat_prg_usr_id   VARCHAR(20)   NO   P   PROGRESS.PGR_USR_ID   用户ID(字符串形式slu+ent_id)   
+pat_prg_res_id   INT(10)   NO   P   PROGRESS.PGR_RES_ID   资源表ID   
+pat_prg_attempt_nbr   INT(10)   NO   P   PROGRESS.PGR_ATTEMPT_NBR   尝试次数   
+pat_att_id   INT(10)   NO   P   ATTACHMENT.ATT_ID   附件表ID(关联文件路径)   
+pat_tkh_id   INT(10)   NO   P   PROGRESS.PGR_TKH_ID   学习记录ID   
+序号�?114   表名：progressattempt                  
+备注：学习过程尝试次数学习记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+atm_pgr_usr_id   VARCHAR(20)   NO   P   PROGRESS.PGR_USR_ID   用户ID(字符串形式slu+ent_id)   
+atm_pgr_res_id   INT(10)   NO   P   PROGRESS.PGR_RES_ID   资源表ID   
+atm_pgr_attempt_nbr   INT(10)   NO   P   PROGRESS.PGR_ATTEMPT_NBR   尝试次数   
+atm_int_res_id   INT(10)   NO   P   INTERACTION.INT_RES_ID      
+atm_int_order   SMALLINT(5)   NO   P   INTERACTION.INT_ORDER      
+atm_response_bil   VARCHAR(2100)   YES            
+atm_correct_ind   BIT(1)   NO            
+atm_score   DECIMAL(4)   YES            
+atm_max_score   DECIMAL(4)   YES            
+atm_flag_ind   BIT(1)   NO            
+atm_upd_datetime   DATETIME(19)   NO            
+atm_order   INT(10)   YES            
+atm_tkh_id   INT(10)   NO   P   PROGRESS.PGR_TKH_ID      
+atm_response_bil_ext   VARCHAR(2100)   YES            
+序号�?115   表名：psnpreference                  
+备注：个人信息开放权限设�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+pfr_ent_id   INT(10)   NO   P         
+pfr_skin_id   VARCHAR(20)   YES            
+pfr_lang   VARCHAR(10)   YES            
+pfr_create_timestamp   DATETIME(19)   NO            
+pfr_create_usr_id   VARCHAR(20)   NO            
+pfr_update_timestamp   DATETIME(19)   NO            
+pfr_update_usr_id   VARCHAR(20)   NO            
+序号�?116   表名：quecontainer                  
+备注：抽提条�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+qct_res_id   INT(10)   NO   P         
+qct_select_logic   VARCHAR(50)   YES            
+qct_allow_shuffle_ind   INT(10)   YES            
+序号�?117   表名：quecontainerspec                  
+备注：抽提条件明�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+qcs_id   INT(10)   NO   P         
+qcs_res_id   INT(10)   NO            
+qcs_obj_id   INT(10)   YES            
+qcs_type   VARCHAR(50)   YES            
+qcs_score   DECIMAL(4)   YES            
+qcs_difficulty   INT(10)   YES            
+qcs_privilege   VARCHAR(50)   YES            
+qcs_duration   DECIMAL(20)   YES            
+qcs_qcount   INT(10)   NO            
+qcs_create_timestamp   DATETIME(19)   NO            
+qcs_create_usr_id   VARCHAR(50)   NO            
+qcs_update_timestamp   DATETIME(19)   NO            
+qcs_update_usr_id   VARCHAR(50)   NO            
+序号�?118   表名：question                  
+备注：题目信息表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+que_res_id   INT(10)   NO   P   RESOURCES.RES_ID   资源表ID   
+que_xml   LONGTEXT(2147483647)   YES         题目信息XML   
+que_score   DECIMAL(4)   YES         题目分数   
+que_type   VARCHAR(10)   YES         题目类型(选择�?/填空题等)   
+que_int_count   INT(10)   NO         答案�?   
+que_prog_lang   VARCHAR(30)   YES            
+que_media_ind   BIT(1)   NO         是否media文件   
+que_submit_file_ind   INT(10)   YES         是否提交文件   
+序号�?119   表名：receipt                  
+备注：公告回�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+REC_ID   INT(10)   NO   P      回执ID自增�?   
+REC_MSG_ID   INT(10)   NO         公告ID   
+REC_ENT_ID   INT(10)   NO         用户ID   
+REC_USG_ID   VARCHAR(20)   YES         用户组ID   
+RECEIPT_DATE   DATETIME(19)   YES         回执时间   
+序号�?120   表名：reguser                  
+备注：用户信息表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+usr_id   VARCHAR(20)   NO   P      用户ID(字符串形式slu+ent_id)   
+usr_ent_id   INT(10)   YES      ENTITY.ENT_ID   用户ID(数字形式)   
+usr_pwd   VARCHAR(30)   YES         用户密码   
+usr_email   VARCHAR(255)   YES         邮件地址   
+usr_email_2   VARCHAR(50)   YES         备用邮件地址   
+usr_full_name_bil   VARCHAR(255)   YES         用户全称   
+usr_initial_name_bil   VARCHAR(255)   YES         初始用户�?   
+usr_last_name_bil   VARCHAR(255)   YES         �?后使用用户名   
+usr_first_name_bil   VARCHAR(255)   YES         �?初使用用户名   
+usr_display_bil   VARCHAR(255)   YES         用户�?(页面显示)   
+usr_gender   VARCHAR(1)   YES         性别   
+usr_bday   DATETIME(19)   YES         出生日期   
+usr_hkid   VARCHAR(50)   YES         HK ID(香港市民身份证ID,香港个别项目才使�?)   
+usr_other_id_no   VARCHAR(50)   YES         (备用字段,不常�?)   
+usr_other_id_type   VARCHAR(10)   YES         (备用字段,不常�?)   
+usr_tel_1   VARCHAR(50)   YES         电话1   
+usr_tel_2   VARCHAR(50)   YES         电话2   
+usr_fax_1   VARCHAR(255)   YES         传真   
+usr_country_bil   VARCHAR(50)   YES         国家(不常�?)   
+usr_postal_code_bil   VARCHAR(50)   YES         邮政编号(不使�?)   
+usr_state_bil   VARCHAR(50)   YES         (不使�?)   
+usr_address_bil   VARCHAR(255)   YES         地址(不常�?)   
+usr_class   VARCHAR(20)   YES         (不使�?)   
+usr_class_number   VARCHAR(50)   YES         (不使�?)   
+usr_signup_date   DATETIME(19)   NO         注册时间   
+usr_last_login_role   VARCHAR(255)   YES         �?后一次登录平台时使用的角�?   
+usr_last_login_date   DATETIME(19)   NO         �?后一次登录时�?   
+usr_status   VARCHAR(20)   NO         用户状�??   
+usr_upd_date   DATETIME(19)   NO         用户修改时间   
+usr_ste_ent_id   INT(10)   YES         用户�?属集团ID(�?般都�?1)   
+usr_ste_usr_id   VARCHAR(255)   YES         用户登录ID   
+usr_extra_1   VARCHAR(255)   YES         扩展字段   
+usr_cost_center   VARCHAR(50)   YES         (不使�?)   
+usr_login_trial   SMALLINT(5)   YES         用户失败登陆次数(�?�?3次为登录成功,平台会自动冻结帐�?)   
+usr_login_status   VARCHAR(255)   YES         用户登录状�??(失败或�?�成�?)   
+usr_remark_xml   LONGTEXT(2147483647)   YES         备注信息   
+usr_extra_2   VARCHAR(255)   YES         扩展字段   
+usr_extra_3   VARCHAR(50)   YES            
+usr_extra_4   VARCHAR(50)   YES            
+usr_extra_5   VARCHAR(50)   YES            
+usr_extra_6   VARCHAR(50)   YES            
+usr_extra_7   VARCHAR(50)   YES            
+usr_extra_8   VARCHAR(50)   YES            
+usr_extra_9   VARCHAR(50)   YES            
+usr_extra_10   VARCHAR(50)   YES            
+usr_approve_usr_id   VARCHAR(50)   YES         审批�?   
+usr_approve_timestamp   DATETIME(19)   YES         审批时间   
+usr_approve_reason   TEXT(65535)   YES         审批备注/原因   
+usr_pwd_need_change_ind   INT(10)   YES         设置用户第一次登录时是否强制用户修改密码   
+usr_pwd_upd_timestamp   DATETIME(19)   YES         密码修改时间   
+usr_syn_rol_ind   BIT(1)   NO         默认1   
+usr_not_syn_gpm_type   VARCHAR(50)   YES         (不使�?)   
+usr_join_datetime   DATETIME(19)   YES         加入公司日前   
+usr_job_title   VARCHAR(255)   YES         职称   
+usr_app_approval_usg_ent_id   INT(10)   YES      USERGROUP.USG_ENT_ID   �?高报名审批用户组   
+usr_source   VARCHAR(50)   YES         来源(平台添加或�?�从其他平台导入)   
+usr_nickname   VARCHAR(255)   YES         呢称   
+usr_choice_tcr_id   INT(10)   YES         我的喜好中设置的主要培训中心   
+usr_weixin_id   VARCHAR(128)   YES         微信�?   
+序号�?121   表名：reguserextension                  
+备注：用户信息扩展表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+urx_usr_ent_id   INT(10)   NO   P      用户ID   
+urx_extra_datetime_11   DATETIME(19)   YES            
+urx_extra_datetime_12   DATETIME(19)   YES            
+urx_extra_datetime_13   DATETIME(19)   YES            
+urx_extra_datetime_14   DATETIME(19)   YES            
+urx_extra_datetime_15   DATETIME(19)   YES            
+urx_extra_datetime_16   DATETIME(19)   YES            
+urx_extra_datetime_17   DATETIME(19)   YES            
+urx_extra_datetime_18   DATETIME(19)   YES            
+urx_extra_datetime_19   DATETIME(19)   YES            
+urx_extra_datetime_20   DATETIME(19)   YES            
+urx_extra_singleoption_21   VARCHAR(255)   YES            
+urx_extra_singleoption_22   VARCHAR(255)   YES            
+urx_extra_singleoption_23   VARCHAR(255)   YES            
+urx_extra_singleoption_24   VARCHAR(255)   YES            
+urx_extra_singleoption_25   VARCHAR(255)   YES            
+urx_extra_singleoption_26   VARCHAR(255)   YES            
+urx_extra_singleoption_27   VARCHAR(255)   YES            
+urx_extra_singleoption_28   VARCHAR(255)   YES            
+urx_extra_singleoption_29   VARCHAR(255)   YES            
+urx_extra_singleoption_30   VARCHAR(255)   YES            
+urx_extra_multipleoption_31   VARCHAR(255)   YES            
+urx_extra_multipleoption_32   VARCHAR(255)   YES            
+urx_extra_multipleoption_33   VARCHAR(255)   YES            
+urx_extra_multipleoption_34   VARCHAR(255)   YES            
+urx_extra_multipleoption_35   VARCHAR(255)   YES            
+urx_extra_multipleoption_36   VARCHAR(255)   YES            
+urx_extra_multipleoption_37   VARCHAR(255)   YES            
+urx_extra_multipleoption_38   VARCHAR(255)   YES            
+urx_extra_multipleoption_39   VARCHAR(255)   YES            
+urx_extra_multipleoption_40   VARCHAR(255)   YES            
+urx_extra_41   TEXT(65535)   YES            
+urx_extra_42   TEXT(65535)   YES            
+urx_extra_43   TEXT(65535)   YES            
+urx_extra_44   TEXT(65535)   YES            
+urx_extra_45   TEXT(65535)   YES            
+序号�?122   表名：reportspec                  
+备注：保存的报表查询条件模板                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rsp_id   INT(10)   NO   P         
+rsp_rte_id   INT(10)   NO   P   REPORTTEMPLATE.RTE_ID   报告模块ID   
+rsp_ent_id   INT(10)   YES      ENTITY.ENT_ID   用户ID   
+rsp_title   VARCHAR(255)   NO         模板名称   
+rsp_xml   LONGTEXT(2147483647)   YES         �?选的报告条件xml   
+rsp_create_usr_id   VARCHAR(20)   NO         创建�?   
+rsp_create_timestamp   DATE(10)   YES         创建时间   
+rsp_upd_usr_id   VARCHAR(20)   YES         修改�?   
+rsp_upd_timestamp   DATE(10)   YES         修改时间   
+rsp_content   LONGTEXT(2147483647)   YES         �?选报告显示列的xml   
+序号�?123   表名：resourcecontent                  
+备注：学员学习资源详细信息表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rcn_res_id   INT(10)   NO   P   RESOURCES.RES_ID   资源编号   
+rcn_sub_nbr   INT(10)   NO   P      资源子编�?   
+rcn_desc   VARCHAR(255)   YES         备注信息   
+rcn_order   INT(10)   NO         序号   
+rcn_res_id_content   INT(10)   YES            
+rcn_obj_id_content   INT(10)   YES      OBJECTIVE.OBJ_ID      
+rcn_score_multiplier   INT(10)   YES            
+rcn_rcn_res_id_parent   INT(10)   YES            
+rcn_rcn_sub_nbr_parent   INT(10)   YES            
+rcn_tkh_id   INT(10)   NO   P      学习跟踪记录ID   
+序号�?124   表名：resourcecontentrelation                  
+备注：模块与课程关系树（夹带文件夹关系）                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+id   INT(10)   NO   P      ID   
+rcr_title   VARCHAR(500)   NO         标题，当类型为文件夹时取   
+rcr_type   INT(10)   YES         0是文件夹�?1是模�?   
+rcr_ref_itm_id   INT(10)   NO         课程id   
+rcr_ref_mod_id   INT(10)   NO         对应的模块id   
+rcr_parent_id   INT(10)   NO         父id   
+rcr_create_time   DATETIME(19)   YES         创建时间   
+rcr_create_usr_id   INT(10)   YES         创建�?   
+rcr_update_time   DATETIME(19)   YES         修改时间   
+rcr_update_usr_id   INT(10)   YES         修改�?   
+rcr_copy_id   INT(10)   YES            
+rcr_order   SMALLINT(5)   YES            
+序号�?125   表名：resourceobjective                  
+备注：资源与对象关系结构�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rob_res_id   INT(10)   NO   P   RESOURCES.RES_ID   资源表ID   
+rob_obj_id   INT(10)   NO   P   OBJECTIVE.OBJ_ID   对象表ID   
+序号�?126   表名：resourcepermission                  
+备注：资源访问权限表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rpm_res_id   INT(10)   NO   P   RESOURCES.RES_ID   学习资源   
+rpm_ent_id   INT(10)   NO   P      访问学员ID   
+rpm_rol_ext_id   VARCHAR(255)   YES         允许访问角色ID   
+rpm_read   BIT(1)   NO         是否可读   
+rpm_write   BIT(1)   NO         是否可修�?   
+rpm_execute   BIT(1)   NO         是否可使�?   
+序号�?127   表名：resourcerequirement                  
+备注：资源需求关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+rrq_res_id   INT(10)   NO   P   RESOURCES.RES_ID      
+rrq_req_res_id   INT(10)   NO   P   RESOURCES.RES_ID      
+rrq_status   VARCHAR(50)   NO            
+rrq_create_timestamp   DATETIME(19)   NO            
+rrq_create_usr_id   VARCHAR(20)   NO            
+序号�?128   表名：resources                  
+备注：资源信息表(包括课程/测验/各种题目,课件等都会有记录在表)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+res_id   INT(10)   NO   P         
+res_uuid   VARCHAR(36)   YES         使用语言   
+res_lan   VARCHAR(50)   YES         名称   
+res_title   VARCHAR(255)   YES         类型(如课�?/测验/题目�?)   
+res_type   VARCHAR(10)   NO         子类�?(如题目中分�?�择�?/填空题等)   
+res_subtype   VARCHAR(50)   YES            
+res_format   VARCHAR(10)   YES         难度   
+res_difficulty   SMALLINT(5)   YES         测验限时   
+res_duration   DOUBLE(22)   YES            
+res_privilege   VARCHAR(10)   YES         添加�?   
+res_usr_id_owner   VARCHAR(20)   YES         模板�?   
+res_tpl_name   VARCHAR(50)   YES         标识该资源是从哪个资源copy出来�?   
+res_res_id_root   INT(10)   YES         标识题目资料与哪份试卷资料关�?   
+res_mod_res_id_test   INT(10)   YES      RESOURCES.RES_ID   状�??:  ON/OFF   
+res_status   VARCHAR(10)   YES         创建时间   
+res_create_date   DATETIME(19)   YES         修改�?   
+res_upd_user   VARCHAR(20)   YES         修改时间   
+res_upd_date   DATETIME(19)   YES            
+res_src_type   VARCHAR(50)   YES         资源链接路径   
+res_src_link   VARCHAR(255)   YES            
+res_code   VARCHAR(30)   YES            
+res_instructor_name   VARCHAR(255)   YES            
+res_instructor_organization   VARCHAR(255)   YES            
+res_annotation   TEXT(65535)   YES            
+res_long_desc   LONGTEXT(2147483647)   YES            
+res_desc   TEXT(65535)   YES         Scorm课件版本, 现在只支持Scorm12, 及Scorm2004   
+res_sco_version   VARCHAR(10)   YES            
+res_vod_duration   INT(10)   YES            
+res_img_link   VARCHAR(200)   YES         视频资料知识要点   
+res_vod_main   LONGTEXT(2147483647)   YES            
+res_scor_identifier   VARCHAR(255)   YES            
+res_first_res_id   INT(10)   YES            
+res_total_time   INT(10)   YES            
+res_file_size   INT(10)   YES            
+序号�?129   表名：scormresource                  
+备注：SCORM课件信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+srs_res_id   INT(10)   NO   P   RESOURCES.RES_ID   SCORM课件资源ID   
+srs_structure_xml   LONGTEXT(2147483647)   YES         SCROM目录结构信息   
+srs_aicc_version   VARCHAR(50)   YES         课件版本   
+srs_vendor   VARCHAR(255)   YES            
+srs_max_normal   INT(10)   YES            
+序号�?130   表名：siteposter                  
+备注：网站风格设�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+sp_ste_id   INT(10)   NO   P      培训中心ID,这列的的值与sp_tcr_id�?�?.   
+sp_media_file   VARCHAR(50)   YES         宣传图片名媒体文件名   
+sp_url   VARCHAR(255)   YES         关系URL   
+sp_status   VARCHAR(50)   YES         状�??:  ON/OFF   
+sp_media_file1   VARCHAR(50)   YES         宣传图片名媒体文件名   
+sp_url1   VARCHAR(255)   YES            
+sp_status1   VARCHAR(50)   YES            
+sp_media_file2   VARCHAR(50)   YES         宣传图片名媒体文件名   
+sp_url2   VARCHAR(255)   YES            
+sp_status2   VARCHAR(50)   YES            
+sp_media_file3   VARCHAR(50)   YES         宣传图片名媒体文件名   
+sp_url3   VARCHAR(255)   YES            
+sp_status3   VARCHAR(50)   YES            
+sp_media_file4   VARCHAR(50)   YES         宣传图片名媒体文件名   
+sp_url4   VARCHAR(255)   YES            
+sp_status4   VARCHAR(50)   YES            
+sp_tcr_id   INT(10)   NO            
+sp_upd_usr_id   VARCHAR(20)   YES            
+sp_upd_timestamp   DATETIME(19)   YES            
+SP_MOBILE_IND   INT(10)   NO   P      是否为移动端记录:0 pc�? 1 移动�?   
+sp_logo_file_cn   VARCHAR(100)   NO         �?体中文LOGO图片�?   
+sp_logo_file_hk   VARCHAR(100)   NO            
+sp_logo_file_us   VARCHAR(100)   NO         英文LOGO图片�?   
+login_bg_file1   VARCHAR(255)   YES         登录背景图片   
+login_bg_file2   VARCHAR(255)   YES            
+login_bg_file3   VARCHAR(255)   YES            
+login_bg_file4   VARCHAR(255)   YES            
+login_bg_file5   VARCHAR(255)   YES            
+guide_file1   VARCHAR(255)   YES         宣传栏增加手机端app启动图片显示   
+guide_file2   VARCHAR(255)   YES            
+guide_file3   VARCHAR(255)   YES            
+sp_welcome_word   VARCHAR(255)   YES         首页欢迎�?   
+mb_welcome_word   VARCHAR(255)   YES            
+sp_login_show_header_ind   BIT(1)   YES            
+sp_all_show_footer_ind   BIT(1)   YES            
+login_bg_video   VARCHAR(200)   YES            
+login_bg_type   VARCHAR(10)   YES            
+序号�?131   表名：smallclass                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+sc_id   INT(10)   NO   P      微课ID   
+sc_res_id   INT(10)   NO         资源ID   
+sc_title   VARCHAR(255)   NO         微课标题   
+sc_type   INT(10)   NO         微课类型1-图文�?2-文图�?3-媒体文字�?4-文字媒体   
+sc_create_usr_id   INT(10)   YES         创建�?   
+sc_create_time   DATETIME(19)   YES         创建时间   
+sc_update_usr_id   INT(10)   YES         修改�?   
+sc_update_time   DATETIME(19)   YES         修改时间   
+序号�?132   表名：smallclasspassage                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+scp_id   INT(10)   NO   P      段落ID   
+scp_res_id   INT(10)   NO         资源ID   
+scp_src_link   VARCHAR(255)   YES         图片/媒体文件   
+scp_type   VARCHAR(20)   YES         文件类型IMG图片，VOD视频，AUD音频   
+scp_content   LONGTEXT(2147483647)   YES         段落文字   
+scp_order   INT(10)   NO         段落排序   
+scp_create_usr_id   INT(10)   YES         创建�?   
+scp_create_time   DATETIME(19)   YES         创建时间   
+scp_update_usr_id   INT(10)   YES         修改�?   
+scp_update_time   DATETIME(19)   YES         修改时间   
+序号�?133   表名：sns_attention                  
+备注：社区化-关注                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_att_id   INT(10)   NO   P         
+s_att_source_uid   INT(10)   YES         关注�?   
+s_att_target_uid   INT(10)   YES         被关注人   
+s_att_create_datetime   DATETIME(19)   YES            
+序号�?134   表名：sns_collect                  
+备注：社区化-收藏                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_clt_id   INT(10)   NO   P         
+s_clt_title   VARCHAR(255)   YES         标题   
+s_clt_url   VARCHAR(255)   YES         链接地址   
+s_clt_create_datetime   DATETIME(19)   YES         创建时间   
+s_clt_uid   INT(10)   YES         收藏人员ID   
+s_clt_module   VARCHAR(50)   YES         模块   
+s_clt_target_id   INT(10)   YES         被收藏的ID   
+序号�?135   表名：sns_comment                  
+备注：社区化-评论                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_cmt_id   INT(10)   NO   P         
+s_cmt_uid   INT(10)   YES         用户ID   
+s_cmt_content   LONGTEXT(2147483647)   YES         评论   
+s_cmt_is_reply   VARCHAR(3)   YES         是否回复的评�?   
+s_cmt_reply_to_id   INT(10)   YES         ID下的评论   
+s_cmt_create_datetime   DATETIME(19)   YES         创建时间   
+s_cmt_anonymous   INT(10)   YES         匿名�?   
+s_cmt_module   VARCHAR(50)   YES         模块�?   
+s_cmt_target_id   INT(10)   YES         目标iD   
+s_cmt_reply_to_uid   INT(10)   YES         给某人回�?   
+序号�?136   表名：sns_count                  
+备注：社区化-赞，分享，收藏的统计                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_cnt_id   INT(10)   NO   P      自增�?   
+s_cnt_target_id   INT(10)   YES         对像ID,可能是课�?/文章/知识/问答   
+s_cnt_collect_count   INT(10)   YES         收藏�?   
+s_cnt_share_count   INT(10)   YES         分享�?   
+s_cnt_like_count   INT(10)   YES         赞数   
+s_cnt_update_time   DATETIME(19)   YES            
+s_cnt_create_time   DATETIME(19)   YES            
+s_cnt_create_usr_id   INT(10)   YES            
+s_cnt_update_usr_id   INT(10)   YES            
+s_cnt_module   VARCHAR(32)   YES         �?属模�?   
+s_cnt_is_comment   INT(10)   YES         赞的统计，区分是不是评论的赞   
+序号�?137   表名：sns_doing                  
+备注：社区化-动�?�（将弃用）                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_doi_id   INT(10)   NO   P         
+s_doi_act   VARCHAR(50)   YES            
+s_doi_title   LONGTEXT(2147483647)   YES            
+s_doi_uid   INT(10)   NO            
+s_doi_create_datetime   DATETIME(19)   YES            
+s_doi_url   VARCHAR(255)   NO            
+s_doi_module   VARCHAR(50)   YES            
+s_doi_target_id   INT(10)   YES            
+s_doi_act_id   INT(10)   YES            
+s_doi_reply_id   INT(10)   YES            
+s_doi_operator_uid   INT(10)   YES            
+s_doi_target_type   VARCHAR(20)   YES            
+序号�?138   表名：sns_group                  
+备注：社区化-群组                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_grp_id   INT(10)   NO   P         
+s_grp_uid   INT(10)   YES            
+s_grp_title   VARCHAR(255)   YES            
+s_grp_desc   VARCHAR(255)   YES            
+s_grp_private   INT(10)   YES            
+s_grp_create_uid   INT(10)   YES            
+s_grp_create_datetime   DATETIME(19)   YES            
+s_grp_update_uid   INT(10)   YES            
+s_grp_update_datetime   DATETIME(19)   YES            
+s_grp_tcr_id   INT(10)   YES            
+s_grp_card   VARCHAR(100)   YES            
+s_grp_status   VARCHAR(20)   YES            
+序号�?139   表名：sns_group_member                  
+备注：社区化-群组人员                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_gpm_id   INT(10)   NO   P         
+s_gpm_grp_id   INT(10)   YES            
+s_gpm_usr_id   INT(10)   YES            
+s_gpm_join_datetime   DATETIME(19)   YES            
+s_gpm_status   INT(10)   YES            
+s_gpm_type   INT(10)   YES            
+s_gpm_apply_datetime   DATETIME(19)   YES            
+s_gpm_check_datetime   DATETIME(19)   YES            
+s_gpm_check_user   INT(10)   YES            
+序号�?140   表名：sns_setting                  
+备注：社区化-设置                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_set_id   INT(10)   NO   P         
+s_set_uid   INT(10)   YES            
+s_set_comment   INT(10)   YES            
+s_set_group   INT(10)   YES            
+s_set_my_follow   INT(10)   YES            
+s_set_my_fans   INT(10)   YES            
+s_set_share   INT(10)   YES            
+s_set_valuation   INT(10)   YES            
+s_set_like   INT(10)   YES            
+s_set_doing   INT(10)   YES            
+s_set_create_uid   INT(10)   YES            
+s_set_create_datetime   DATETIME(19)   YES            
+s_set_update_uid   INT(10)   YES            
+s_set_update_datetime   DATETIME(19)   YES            
+s_set_prof_fullname   INT(10)   YES            
+s_set_prof_bday   INT(10)   YES            
+s_set_prof_cert_location   INT(10)   YES            
+s_set_prof_pol_land   INT(10)   YES            
+s_set_prof_email   INT(10)   YES            
+s_set_prof_tel   INT(10)   YES            
+s_set_prof_fax   INT(10)   YES            
+s_set_prof_company   INT(10)   YES            
+s_set_prof_nickname   INT(10)   YES            
+s_set_prof_join_date   INT(10)   YES            
+s_set_prof_grade   INT(10)   YES            
+s_set_prof_msn   INT(10)   YES            
+s_set_my_files   INT(10)   YES            
+s_set_my_collection   INT(10)   YES            
+s_set_my_credit   INT(10)   YES            
+s_set_my_learning_record   INT(10)   YES            
+s_set_my_learning_situation   INT(10)   YES            
+s_set_voting   INT(10)   YES            
+s_set_my_credit_exchange   INT(10)   YES            
+序号�?141   表名：sns_share                  
+备注：社区化-分享（将弃用�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_sha_id   INT(10)   NO   P         
+s_sha_title   VARCHAR(255)   YES            
+s_sha_url   VARCHAR(255)   YES            
+s_sha_create_datetime   DATETIME(19)   YES            
+s_sha_uid   INT(10)   YES            
+s_sha_module   VARCHAR(50)   YES            
+s_sha_target_id   INT(10)   YES            
+序号�?142   表名：sns_valuation                  
+备注：社区化-�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_vlt_id   INT(10)   NO   P         
+s_vlt_type   VARCHAR(50)   YES            
+s_vlt_score   INT(10)   YES            
+s_vlt_module   VARCHAR(50)   YES            
+s_vlt_target_id   INT(10)   YES            
+s_vlt_is_comment   INT(10)   YES            
+序号�?143   表名：sns_valuation_log                  
+备注：社区化-赞明�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+s_vtl_log_id   INT(10)   NO   P         
+s_vtl_type   VARCHAR(50)   YES            
+s_vtl_score   INT(10)   YES            
+s_vtl_create_datetime   DATETIME(19)   YES            
+s_vtl_uid   INT(10)   YES            
+s_vtl_module   VARCHAR(50)   YES            
+s_vtl_target_id   INT(10)   YES            
+s_vtl_is_comment   INT(10)   YES            
+序号�?144   表名：subjectsubmission                  
+备注：题目作答表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ss_id   INT(10)   NO   P      主键id   
+ss_ar_id   INT(10)   NO         答题记录id   
+ss_ar_mes_id   INT(10)   NO         copy表题目id   
+ss_score   FLOAT(12)   NO         分数   
+ss_mea_id   INT(10)   NO         题目答案表id   
+ss_content   VARCHAR(1024)   YES         答题内容(问答�?)   
+序号�?145   表名：supervisetargetentity                  
+备注：用户直属上�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+spt_source_usr_ent_id   INT(10)   NO   P      用户ID   
+spt_type   VARCHAR(20)   NO   P      类型(DIRECT_SUPERVISE直属上司/SUPERVISE)   
+spt_target_ent_id   INT(10)   NO   P   ENTITY.ENT_ID   类型为DIRECT_SUPERVISE时为用户ID即直属上司用户ID,类型SUPERVISE时为用户组ID下属部门   
+spt_create_timestamp   DATETIME(19)   NO         创建时间   
+spt_create_usr_id   VARCHAR(20)   NO         创建�?   
+spt_syn_timestamp   DATETIME(19)   YES         同步时间(同步数据才有�?)   
+spt_eff_start_datetime   DATETIME(19)   NO         有效期开始日�?   
+spt_eff_end_datetime   DATETIME(19)   NO         有效期结束日�?   
+序号�?146   表名：supplier                  
+备注：供应商基本信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+spl_id   INT(10)   NO   P      ID   
+spl_name   VARCHAR(255)   NO         供应商名�?   
+spl_established_date   DATETIME(19)   YES            
+spl_registered_capital   VARCHAR(255)   YES            
+spl_type   VARCHAR(255)   YES         �?属行�?   
+spl_address   VARCHAR(255)   YES         地址   
+spl_post_num   VARCHAR(255)   YES         邮政编码   
+spl_contact   VARCHAR(255)   YES         联系方式   
+spl_tel   VARCHAR(255)   YES         电话   
+spl_mobile   VARCHAR(255)   YES         手机   
+spl_email   VARCHAR(255)   YES         电子邮箱   
+spl_total_staff   INT(10)   YES            
+spl_full_time_inst   INT(10)   YES            
+spl_part_time_inst   INT(10)   YES            
+spl_expertise   TEXT(65535)   YES            
+spl_course   TEXT(65535)   YES            
+spl_status   VARCHAR(50)   YES            
+spl_attachment_1   VARCHAR(255)   YES            
+spl_attachment_2   VARCHAR(255)   YES            
+spl_attachment_3   VARCHAR(255)   YES            
+spl_attachment_4   VARCHAR(255)   YES            
+spl_attachment_5   VARCHAR(255)   YES            
+spl_attachment_6   VARCHAR(255)   YES            
+spl_attachment_7   VARCHAR(255)   YES            
+spl_attachment_8   VARCHAR(255)   YES            
+spl_attachment_9   VARCHAR(255)   YES            
+spl_attachment_10   VARCHAR(255)   YES            
+spl_create_datetime   DATETIME(19)   YES            
+spl_create_usr_id   VARCHAR(50)   YES            
+spl_update_datetime   DATETIME(19)   YES            
+spl_update_usr_id   VARCHAR(50)   YES            
+spl_representative   VARCHAR(255)   YES            
+spl_tcr_id   INT(10)   NO         用户�?属最高培训中�?   
+序号�?147   表名：suppliercomment                  
+备注：供应商备注                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+scm_id   INT(10)   NO   P         
+scm_spl_id   INT(10)   NO            
+scm_ent_id   INT(10)   NO            
+scm_design_score   DOUBLE(22)   YES            
+scm_teaching_score   DOUBLE(22)   YES            
+scm_price_score   DOUBLE(22)   YES            
+scm_comment   TEXT(65535)   YES            
+scm_update_datetime   DATETIME(19)   YES            
+scm_create_datetime   DATETIME(19)   YES            
+scm_management_score   DOUBLE(22)   YES            
+scm_score   DOUBLE(22)   YES            
+序号�?148   表名：suppliercooperationexperience                  
+备注：供应商合作信息                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+sce_id   INT(10)   NO   P         
+sce_spl_id   INT(10)   YES            
+sce_itm_name   VARCHAR(255)   YES            
+sce_start_date   DATETIME(19)   YES            
+sce_end_date   DATETIME(19)   YES            
+sce_desc   TEXT(65535)   YES            
+sce_dpt   VARCHAR(255)   YES            
+sce_update_datetime   DATETIME(19)   YES            
+sce_update_usr_id   VARCHAR(50)   YES            
+序号�?149   表名：suppliermaincourse                  
+备注：供应商核心课程                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+smc_id   INT(10)   NO   P         
+smc_spl_id   INT(10)   NO            
+smc_name   VARCHAR(255)   YES            
+smc_inst   VARCHAR(255)   YES            
+smc_price   DOUBLE(22)   YES            
+smc_update_datetime   DATETIME(19)   YES            
+smc_update_usr_id   VARCHAR(50)   YES            
+序号�?150   表名：systemsetting                  
+备注：系统设置表(初始值�?�过insert语句写入)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+sys_cfg_type   VARCHAR(50)   NO   P      类型(用量警告�?/�?大用戶數/通知郵件接收�?)   
+sys_cfg_value   TEXT(65535)   YES         设置的�??   
+sys_cfg_create_timestamp   DATETIME(19)   NO         创建时间   
+sys_cfg_create_usr_id   VARCHAR(20)   NO         创建�?   
+sys_cfg_update_timestamp   DATETIME(19)   NO         修改时间   
+sys_cft_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?151   表名：systemstatistics                  
+备注：系统数据统计表，实时统计（注：�?�?始是用线程更新，后来改为实时统计�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ssc_eip_tcr_id   INT(10)   NO   P         
+ssc_update_time   DATETIME(19)   NO            
+ssc_web_base_couse_count   INT(10)   YES            
+ssc_classroom_course_count   INT(10)   YES            
+ssc_integrated_course_count   INT(10)   YES            
+ssc_web_base_exam_count   INT(10)   YES            
+ssc_classroom_exam_count   INT(10)   YES            
+ssc_open_course_count   INT(10)   YES            
+ssc_special_topic_count   INT(10)   YES            
+ssc_admin_know_share_count   INT(10)   YES            
+ssc_learner_know_share_count   INT(10)   YES            
+ssc_user_online_count   INT(10)   YES            
+ssc_user_count   INT(10)   YES            
+ssc_user_group_count   INT(10)   YES            
+ssc_mobile_app_user_count   INT(10)   YES            
+ssc_wechat_user_count   INT(10)   YES            
+序号�?152   表名：tag                  
+备注：知识标�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tag_id   INT(10)   NO   P         
+tag_title   VARCHAR(255)   YES          标题   
+tag_tcr_id   INT(10)   YES      TCTRAININGCENTER.TCR_ID   �?属培训中�?   
+tag_create_datetime   DATETIME(19)   YES            
+tag_create_user_id   VARCHAR(50)   YES            
+tag_update_datetime   DATETIME(19)   YES            
+tag_update_user_id   VARCHAR(50)   YES            
+序号�?153   表名：tcrelation                  
+备注：培训中心与培训中心的父子关系表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tcn_child_tcr_id   INT(10)   NO   P   TCTRAININGCENTER.TCR_ID   子培训中心ID   
+tcn_ancestor   INT(10)   NO   P   TCTRAININGCENTER.TCR_ID   父培训中心ID   
+tcn_order   INT(10)   NO         层级排序   
+tcn_create_usr_id   VARCHAR(20)   NO         创建时间   
+tcn_create_timestamp   DATETIME(19)   NO         创建�?   
+序号�?154   表名：tcrmodule                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tm_id   INT(10)   NO   P         
+tm_tcr_id   INT(10)   NO         培训中心ID   
+tm_code   VARCHAR(255)   NO         模板编号   
+tm_title_gb   VARCHAR(255)   NO         模板名称(�?�?)   
+tm_title_ch   VARCHAR(255)   NO         模板名称(繁体)   
+tm_title_en   VARCHAR(255)   NO         模板名称(英文)   
+tm_is_centre   INT(10)   NO            
+序号�?155   表名：tcrtemplate                  
+备注：培训中心模�?(未使�?,数据是SQL insert 写入的初始数�?)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tt_id   INT(10)   NO   P         
+tt_tcr_id   INT(10)   NO      TCTRAININGCENTER.TCR_ID      
+tt_dis_fun_navigation_ind   INT(10)   NO            
+tt_create_timestamp   DATETIME(19)   NO            
+tt_create_usr_id   VARCHAR(20)   NO            
+tt_update_timestamp   DATETIME(19)   NO            
+tt_update_usr_id   VARCHAR(20)   NO            
+序号�?156   表名：tcrtemplatemodule                  
+备注：培训中心自定义学员首页                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ttm_id   INT(10)   NO   P         
+ttm_tm_id   INT(10)   NO      TCRMODULE.TM_ID      
+ttm_tt_id   INT(10)   NO      TCRTEMPLATE.TT_ID      
+ttm_mod_x_value   INT(10)   NO            
+ttm_mod_y_value   INT(10)   NO            
+ttm_mod_status   INT(10)   YES            
+序号�?157   表名：tctrainingcenter                  
+备注：培训中�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tcr_id   INT(10)   NO   P      培训中心ID   
+tcr_code   VARCHAR(50)   NO         培训中心编号   
+tcr_title   VARCHAR(255)   NO         培训中心名称   
+tcr_ste_ent_id   INT(10)   NO         培训中心�?属集团ID   
+tcr_status   VARCHAR(10)   NO         培训中心状�??   
+tcr_create_timestamp   DATETIME(19)   NO         培训中心创建时间   
+tcr_create_usr_id   VARCHAR(20)   NO         培训中心创建�?   
+tcr_update_timestamp   DATETIME(19)   NO         培训中心修改时间   
+tcr_update_usr_id   VARCHAR(20)   NO         培训中心修改�?   
+tcr_parent_tcr_id   INT(10)   YES      TCTRAININGCENTER.TCR_ID   培训中心的父培训中心ID(树状结构)   
+tcr_user_mgt_ind   BIT(1)   NO         是否允许维护用户信息   
+序号�?158   表名：tctrainingcenterofficer                  
+备注：培训中心管理员                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tco_tcr_id   INT(10)   NO   P   TCTRAININGCENTER.TCR_ID   培训中心ID   
+tco_usr_ent_id   INT(10)   NO   P      用户ID   
+tco_rol_ext_id   VARCHAR(255)   NO   P      类型(角色类型,如培训管理员/集团测评管理员等)   
+tco_create_timestamp   DATETIME(19)   NO         创建时间   
+tco_create_usr_id   VARCHAR(20)   NO         创建�?   
+tco_major_ind   INT(10)   NO         主要培训中心(我的喜好里的功能设置)   
+tco_update_timestamp   DATETIME(19)   YES         修改时间   
+tco_update_usr_id   VARCHAR(20)   YES         修改�?   
+序号�?159   表名：tctrainingcentertargetentity                  
+备注：培训中心负责的用户组实体对�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tce_tcr_id   INT(10)   NO   P   TCTRAININGCENTER.TCR_ID   培训中心ID   
+tce_ent_id   INT(10)   NO   P   ENTITY.ENT_ID   用户组ID   
+tce_create_timestamp   DATETIME(19)   NO         创建时间   
+tce_create_usr_id   VARCHAR(20)   NO         创建�?   
+序号�?160   表名：tptrainingplan                  
+备注：培训计�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tpn_id   INT(10)   NO   P      ID   
+tpn_tcr_id   INT(10)   NO         培训中心ID   
+tpn_date   DATETIME(19)   NO         培训计划日期   
+tpn_code   VARCHAR(50)   NO         培训计划编号   
+tpn_name   VARCHAR(200)   YES         名称   
+tpn_cos_type   VARCHAR(255)   NO         培训类型   
+tpn_tnd_title   VARCHAR(100)   YES         培训计划目录名称   
+tpn_introduction   LONGTEXT(2147483647)   YES         �?�?   
+tpn_aim   LONGTEXT(2147483647)   YES         目标   
+tpn_target   LONGTEXT(2147483647)   YES         对象   
+tpn_responser   VARCHAR(255)   YES         负责�?   
+tpn_lrn_count   INT(10)   YES         预计参加培训人数   
+tpn_duration   LONGTEXT(2147483647)   YES         时长   
+tpn_wb_start_date   DATETIME(19)   YES         网上内容�?始时�?   
+tpn_wb_end_date   DATETIME(19)   YES         网上内容结束时间   
+tpn_ftf_start_date   DATETIME(19)   YES         面授�?始日�?   
+tpn_ftf_end_date   DATETIME(19)   YES         面授结束日期   
+tpn_type   VARCHAR(20)   NO         计划类型(年度/编外)   
+tpn_fee   DOUBLE(22)   YES         费用   
+tpn_remark   LONGTEXT(2147483647)   YES         备注信息   
+tpn_status   VARCHAR(20)   NO         状�??   
+tpn_approve_usr_id   VARCHAR(20)   YES         审批�?   
+tpn_approve_timestamp   DATETIME(19)   YES         审批时间   
+tpn_create_usr_id   VARCHAR(20)   NO         创建�?   
+tpn_create_timestamp   DATETIME(19)   NO         创建时间   
+tpn_update_usr_id   VARCHAR(20)   NO         修改�?   
+tpn_update_timestamp   DATETIME(19)   NO         修改时间   
+tpn_submit_usr_id   VARCHAR(20)   YES         提交�?   
+tpn_submit_timestamp   DATETIME(19)   YES         提交时间   
+序号�?161   表名：tpyearplan                  
+备注：年度计�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ypn_year   INT(10)   NO   P      年份   
+ypn_tcr_id   INT(10)   NO   P      培训中心ID   
+ypn_file_name   VARCHAR(255)   NO         (上传)年度计划文件   
+ypn_status   VARCHAR(20)   NO         审批状�??   
+ypn_approve_usr_id   VARCHAR(20)   YES         审批人ID   
+ypn_approve_timestamp   DATETIME(19)   YES         审批时间   
+ypn_submit_usr_id   VARCHAR(20)   YES         提交�?   
+ypn_submit_timestamp   DATETIME(19)   YES         提交时间   
+ypn_create_usr_id   VARCHAR(20)   YES         创建�?   
+ypn_create_timestamp   DATETIME(19)   YES         创建时间   
+ypn_update_usr_id   VARCHAR(20)   YES         修改�?   
+ypn_update_timestamp   DATETIME(19)   YES         修改时间   
+序号�?162   表名：tpyearsetting                  
+备注：年度计划设�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ysg_tcr_id   INT(10)   NO   P      培训中心ID   
+ysg_year   INT(10)   NO   P      计划年度   
+ysg_child_tcr_id_lst   TEXT(65535)   NO         下级培中�?(多个以�?�号间隔)   
+ysg_submit_start_datetime   DATETIME(19)   NO         提交�?始日�?   
+ysg_submit_end_datetime   DATETIME(19)   NO         提交结束日期   
+ysg_create_timestamp   DATETIME(19)   NO         创建时间   
+ysg_create_usr_id   VARCHAR(20)   NO         创建�?   
+ysg_update_timestamp   DATETIME(19)   NO         修改时间   
+ysg_update_usr_id   VARCHAR(20)   NO         修改�?   
+序号�?163   表名：tpyearsetting_relation                  
+备注�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ysr_id   INT(10)   NO   P      自增主键   
+ysr_tcr_id   INT(10)   NO         培训中心id   
+ysr_year   INT(10)   NO         年份   
+ysr_child_tcr_id   INT(10)   NO         子培训中心id   
+ysr_create_timestamp   DATETIME(19)   NO         创建时间   
+ysr_create_usr_id   VARCHAR(20)   NO         创建人id   
+ysr_update_timestamp   DATETIME(19)   NO         修改时间   
+ysr_update_usr_id   VARCHAR(20)   NO         修改人id   
+序号�?164   表名：trackinghistory                  
+备注：学员报名学习追踪记�?(将弃�?)                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+tkh_id   INT(10)   NO   P         
+tkh_type   VARCHAR(20)   NO         类型   
+tkh_usr_ent_id   INT(10)   NO         用户ID   
+tkh_cos_res_id   INT(10)   NO         资源(课程)ID   
+tkh_create_timestamp   DATETIME(19)   NO         创建时间   
+序号�?165   表名：uploadlog                  
+备注：资源上传日�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ulg_id   INT(10)   NO   P         
+ulg_type   VARCHAR(50)   NO            
+ulg_subtype   VARCHAR(50)   YES            
+ulg_usr_id_owner   VARCHAR(50)   NO            
+ulg_file_name   VARCHAR(100)   NO            
+ulg_status   VARCHAR(50)   NO            
+ulg_create_datetime   DATETIME(19)   NO            
+ulg_upd_datetime   DATETIME(19)   NO            
+ulg_desc   LONGTEXT(2147483647)   YES            
+ulg_process   VARCHAR(20)   NO            
+ulg_method   VARCHAR(20)   NO            
+序号�?166   表名：usercredits                  
+备注：用户积分表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+uct_ent_id   INT(10)   NO   P      用户ID   
+uct_total   DOUBLE(22)   YES         积分总数   
+uct_update_timestamp   DATETIME(19)   NO         修改时间   
+uct_zd_total   INT(10)   YES            
+序号�?167   表名：usercreditsdetail                  
+备注：用户积分详�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+id   BIGINT(19)   NO   P      用户ID   
+ucd_ent_id   INT(10)   NO      CREDITSTYPE.CTY_ID   积分类型ID   
+ucd_cty_id   INT(10)   NO         课程ID   
+ucd_itm_id   INT(10)   YES         积分�?   
+ucd_total   DOUBLE(22)   YES         次数   
+ucd_hit   INT(10)   YES            
+ucd_hit_temp   INT(10)   YES         创建时间   
+ucd_create_timestamp   DATETIME(19)   NO         创建�?   
+ucd_create_usr_id   VARCHAR(20)   NO         修改时间   
+ucd_update_timestamp   DATETIME(19)   NO         修改�?   
+ucd_update_usr_id   VARCHAR(20)   NO         报名记录ID   
+ucd_app_id   INT(10)   YES            
+序号�?168   表名：usercreditsdetaillog                  
+备注：用户积分详细日�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+id   BIGINT(19)   NO   P      用户ID   
+ucl_usr_ent_id   INT(10)   NO      CREDITSTYPE.CTY_ID   积分类型ID   
+ucl_bpt_id   INT(10)   NO         积分类型名称   
+ucl_relation_type   VARCHAR(10)   YES         问题资源/或�?�课程ID   
+ucl_source_id   INT(10)   YES         �?得积�?   
+ucl_point   DOUBLE(22)   YES         创建时间   
+ucl_create_timestamp   DATETIME(19)   NO         创建�?   
+ucl_create_usr_id   VARCHAR(20)   NO         报名记录ID   
+ucl_app_id   INT(10)   YES            
+序号�?169   表名：userfavoritefunction                  
+备注：培训管理员菜单快�?��?�道                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+uff_usr_ent_id   INT(10)   NO   P         
+uff_role_ext_id   VARCHAR(32)   YES            
+uff_fun_id   INT(10)   NO   P         
+uff_create_datetime   DATETIME(19)   YES            
+序号�?170   表名：usergrade                  
+备注：用户职位结构表                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ugr_ent_id   INT(10)   NO   P      职位ID   
+ugr_display_bil   VARCHAR(255)   NO         职位名称   
+ugr_ent_id_root   INT(10)   NO         职位�?属集团ID(默认�?1)   
+ugr_type   VARCHAR(50)   YES         职位类型   
+ugr_seq_no   INT(10)   YES         职位编号(后台自动设置数字累加)   
+ugr_default_ind   INT(10)   NO         是否用户默认职位   
+ugr_tcr_id   INT(10)   YES         职位�?属培训中�?   
+ugr_code   VARCHAR(255)   YES         未使�?   
+序号�?171   表名：usergroup                  
+备注：用户组结构�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+usg_ent_id   INT(10)   NO   P   ENTITY.ENT_ID   用户组ID   
+usg_code   VARCHAR(50)   YES         用户组编�?   
+usg_name   TEXT(65535)   YES         用户组名�?   
+usg_display_bil   VARCHAR(60)   NO         用户组显示名�?   
+usg_level   VARCHAR(10)   YES         用户组等�?(不常�?)   
+usg_usr_id_admin   VARCHAR(20)   YES            
+usg_role   VARCHAR(10)   YES         用户组角�?(�?般用户组为null,平台原始用户组All User Groups为ROOT)   
+usg_ent_id_root   INT(10)   YES      USERGROUP.USG_ENT_ID   用户组所属集团ID(默认�?1)   
+usg_subg_code   VARCHAR(50)   YES            
+usg_comment_1   TEXT(65535)   YES            
+usg_comment_2   TEXT(65535)   YES            
+usg_comment_3   VARCHAR(50)   YES            
+usg_comment_4   VARCHAR(50)   YES            
+usg_status   VARCHAR(10)   YES         用户组状�?   
+usg_usr_cnt   INT(10)   YES         用户组下用户数量   
+usg_budget   INT(10)   YES            
+usg_desc   TEXT(65535)   YES         用户组描�?   
+序号�?172   表名：userloginlog                  
+备注：登录日�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+id   INT(10)   NO   P         
+ent_id   INT(10)   YES            
+usr_name   VARCHAR(255)   NO            
+usr_full_name_bil   VARCHAR(255)   YES            
+login_ip   VARCHAR(50)   YES            
+login_time   DATETIME(19)   NO   P         
+year   INT(10)   YES            
+month   INT(10)   YES            
+usr_login_status   VARCHAR(50)   YES            
+login_failure_code   VARCHAR(50)   YES            
+login_failure_message   VARCHAR(255)   YES            
+序号�?173   表名：userlogintracking                  
+备注：弃�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+ult_id   INT(10)   NO   P         
+ult_usr_ent_id   INT(10)   NO            
+ult_type   VARCHAR(20)   YES            
+ult_login_timestamp   DATETIME(19)   YES            
+序号�?174   表名：userpasswordhistory                  
+备注：保存用户密码历史记�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+uph_usr_ent_id   INT(10)   NO            
+uph_pwd   VARCHAR(255)   YES            
+uph_update_usr_ent_id   INT(10)   NO            
+uph_client_type   VARCHAR(10)   NO            
+uph_create_time   DATETIME(19)   NO            
+id   BIGINT(19)   NO   P         
+序号�?175   表名：userposition                  
+备注：用户岗�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+upt_id   INT(10)   NO   P         
+upt_code   VARCHAR(255)   NO            
+upt_title   VARCHAR(255)   NO            
+upt_desc   LONGTEXT(2147483647)   YES            
+upt_tcr_id   INT(10)   NO            
+pfs_update_usr_id   INT(10)   YES            
+pfs_update_time   DATETIME(19)   YES            
+upt_upc_id   INT(10)   YES            
+序号�?176   表名：userpositioncatalog                  
+备注：岗位类�?                  
+表类型：                  
+列名   类型   是否为空   �?   外键依赖   描述   
+upc_id   INT(10)   NO   P         
+upc_title   VARCHAR(255)   YES            
+upc_desc   VARCHAR(255)   YES            
+upc_status   VARCHAR(255)   YES            
+upc_tcr_id   INT(10)   YES            
+upc_create_datetime   DATETIME(19)   YES            
+upc_create_user_id   INT(10)   YES            

@@ -1,0 +1,5 @@
+rootProject.name = 'dbdoc-generator'
+include 'database-doc'
+include 'database-doc-ui'
+include 'database-doc-web'
+
